@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#f7f3ec">
-  <meta name="description" content="写给张思琪的一份生日礼物。把喜欢写成故事，把每一个明天留给你。">
-  <title>写给思琪 · 生日快乐</title>
+  <meta name="description" content="写给张琪的一份生日礼物。把喜欢写成故事，把每一个明天留给你。">
+  <title>写给张琪 · 生日快乐</title>
   <style>
     :root{--paper:#f7f3ec;--ink:#413d37;--muted:#958a80;--rose:#ac5965;--rose-light:#e8c6c8;--line:#ded7cd;--serif:"Songti SC","Noto Serif CJK SC","Source Han Serif SC","STSong","SimSun",serif;--sans:"Microsoft YaHei","PingFang SC",sans-serif}
     *{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--paper);color:var(--ink)}body{font-family:var(--sans);font-size:14px;-webkit-font-smoothing:antialiased;overflow-x:hidden}button,input,textarea{font:inherit}button{cursor:pointer}button,a,input,textarea{-webkit-tap-highlight-color:transparent}button{color:inherit}button:focus-visible,a:focus-visible{outline:2px solid var(--rose);outline-offset:6px}button:disabled{cursor:default;opacity:.35}button{border:0}a{color:inherit}::selection{background:#ead3d0}button svg{pointer-events:none}button:active:not(:disabled){transform:translateY(1px)}
@@ -94,64 +94,156 @@ body:has(dialog[open]){overflow:hidden}
 }
 
 /* ALBUM END */
-  </style>
-<meta name="gift-version" content="20261026-media-v2">
+  .cover-art .photo-label{letter-spacing:.5px}
+.candle-effects{pointer-events:none}
+.candle-light{opacity:1;transform-box:fill-box;transform-origin:50% 100%}
+.candle-fire{transform-box:fill-box;transform-origin:50% 100%;animation:candle-dance 1.7s ease-in-out var(--flame-delay) infinite}
+.candle-glow{animation:candle-glow 2.4s ease-in-out var(--flame-delay) infinite}
+.candle-smoke,.wick-ember{opacity:0}
+.candle-smoke{transform-box:fill-box;transform-origin:50% 100%}
+.blown .candle-light{animation:candle-out .34s ease-in var(--out-delay) both}
+.blown .candle-glow{animation:none;opacity:0;transition:opacity .2s}
+.blown .candle-smoke{animation:candle-smoke 1.9s ease-out var(--smoke-delay) both}
+.blown .wick-ember{animation:candle-ember 1.4s ease-out var(--smoke-delay) both}
+@keyframes candle-dance{
+  0%,100%{transform:rotate(-3deg) scale(.96,1)}
+  24%{transform:rotate(3deg) scale(1.04,.94)}
+  55%{transform:rotate(-2deg) scale(.91,1.06)}
+  78%{transform:rotate(4deg) scale(1,.97)}
+}
+@keyframes candle-glow{0%,100%{opacity:.7}50%{opacity:1}}
+@keyframes candle-out{
+  0%{opacity:1;transform:none}
+  35%{opacity:.85;transform:skewX(-18deg) scale(.85,.9)}
+  100%{opacity:0;transform:translate(5px,1px) skewX(-28deg) scale(.25,.12)}
+}
+@keyframes candle-smoke{
+  0%{opacity:0;transform:translate(0,3px) scale(.45,.3)}
+  18%{opacity:.5}
+  50%{opacity:.32;transform:translate(5px,-9px) scale(.85,.85)}
+  100%{opacity:0;transform:translate(13px,-27px) scale(1.2,1.1)}
+}
+@keyframes candle-ember{0%{opacity:.9}100%{opacity:0}}
+@media(prefers-reduced-motion:reduce){
+  .candle-fire,.candle-glow{animation:none}
+  .blown .candle-light{animation:none;opacity:0}
+  .blown .candle-smoke,.blown .wick-ember{animation:none;opacity:0}
+}
+
+</style>
+<meta name="gift-version" content="20261026-autoplay-v10">
 </head>
 <body>
   <div class="paper-grain" aria-hidden="true"></div><div class="ambient" aria-hidden="true"></div>
   <header class="site-header">
-    <button class="brand" data-go="0" aria-label="回到封面"><span class="brand-mark">♡</span><span class="brand-name">Dear <span id="brand-name">Siqi</span><span class="brand-small">A LITTLE BOOK OF US</span></span></button>
-    <div class="top-actions"><button class="text-button" id="edit-button">布置这份礼物</button><button class="sound-button" id="sound-button" aria-label="播放背景音乐" aria-pressed="false"><span class="equalizer" aria-hidden="true"><i></i><i></i><i></i></span><span id="sound-label">听一点浪漫</span></button></div>
+    <button class="brand" data-go="0" aria-label="回到封面"><span class="brand-mark">♡</span><span class="brand-name">Dear <span id="brand-name">张琪</span><span class="brand-small">A LITTLE BOOK OF US</span></span></button>
+    <div class="top-actions"><button class="sound-button" id="sound-button" aria-label="播放背景音乐" aria-pressed="false"><span class="equalizer" aria-hidden="true"><i></i><i></i><i></i></span><span id="sound-label">听一点浪漫</span></button></div>
   </header>
   <main class="book" id="book" aria-label="生日回忆册">
     <section class="chapter cover active" data-page="0" aria-labelledby="cover-title">
-      <div class="cover-copy"><div class="date-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 2v6M16 2v6M4 11h16"/></svg><span data-bind="birthday">农历十月廿二</span> · 只属于你的日子</div><div class="eyebrow">A birthday letter, just for you</div><h1 id="cover-title"><span data-bind="callName">思琪</span>，<br>今天的浪漫<br><em>都属于你。</em></h1><p>把喜欢藏进时光，把回忆折成书。<br>这一份小小的宇宙，只想慢慢讲给你听。</p><button class="primary" data-go="1">翻开我们的故事 <span class="arrow" aria-hidden="true">⟶</span></button><p class="micro-note">给最特别的你 · 一页一页，都是心意</p></div>
-      <div class="cover-art" aria-label="我们的合照与生日回忆拼贴"><div class="large-orbit" aria-hidden="true"></div><span class="cover-year" aria-hidden="true">a gift for you</span><div class="postage" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 37C5 25 5 10 16 10c5 0 8 4 8 4s3-4 8-4c11 0 11 15-8 27Z"/><path d="m18 23 4 4 9-10"/></svg><span>WITH LOVE</span></div><div class="photo photo-main"><span class="tape" aria-hidden="true"></span><img data-photo="0" src="assets/26f0550f9626517a8b54.webp" alt="下一年，也想和你一起" decoding="async" loading="eager" fetchpriority="high"><span class="photo-label">下一年，也想和你一起</span></div><div class="photo photo-small"><span class="tape" aria-hidden="true"></span><img data-photo="1" src="assets/094308a0d483f78b5900.webp" alt="把所有温柔，都送给你" decoding="async" loading="eager" fetchpriority="high"><span class="photo-label">把所有温柔，都送给你</span></div><svg class="sketch-flower" viewBox="0 0 110 230" fill="none" stroke="#8c997c" stroke-width="1.3" aria-hidden="true"><path d="M47 222c8-50 7-96 3-145M49 159C19 150 15 125 16 122c27 3 34 24 33 37ZM51 135c28-9 38-32 37-40-24 6-34 22-37 40Z"/><g stroke="#b78781"><path d="M48 83C19 70 12 52 18 45c7-8 18 5 22 9-8-22-3-37 5-37 9 0 9 23 9 27 11-21 23-24 27-17 6 8-9 27-15 34 21-8 28-1 24 7-5 12-23 20-42 15Z"/><path d="M48 83c-10-12-13-23-8-29m8 29c4-17 8-25 18-22"/></g></svg><span class="handwritten">with all my love</span><span class="tiny-heart" aria-hidden="true">♡</span><span class="spark one" aria-hidden="true">✧</span><span class="spark two" aria-hidden="true">✦</span><span class="spark three" aria-hidden="true">✧</span><span class="art-note">LITTLE MOMENTS, ALWAYS YOU.</span></div><span class="vertical-note" aria-hidden="true">SOME THINGS ARE MEANT TO LAST</span>
+      <div class="cover-copy"><div class="date-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 2v6M16 2v6M4 11h16"/></svg><span data-bind="birthday">农历十月廿二</span> · 只属于你的日子</div><div class="eyebrow">A birthday letter, just for you</div><h1 id="cover-title"><span data-bind="callName">张琪</span>，<br>今天的浪漫<br><em>都属于你。</em></h1><p>把喜欢藏进时光，把回忆折成书。<br>这一份小小的宇宙，只想慢慢讲给你听。</p><button class="primary" data-go="1">翻开我们的故事 <span class="arrow" aria-hidden="true">⟶</span></button><p class="micro-note">给最特别的你 · 一页一页，都是心意</p></div>
+      <div class="cover-art" aria-label="我们的合照与生日回忆拼贴"><div class="large-orbit" aria-hidden="true"></div><span class="cover-year" aria-hidden="true">a gift for you</span><div class="postage" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 37C5 25 5 10 16 10c5 0 8 4 8 4s3-4 8-4c11 0 11 15-8 27Z"/><path d="m18 23 4 4 9-10"/></svg><span>WITH LOVE</span></div><div class="photo photo-main"><span class="tape" aria-hidden="true"></span><img data-photo="0" src="assets/95c20b39eb873d4186d4.webp" alt="出门少了，喜欢没有少" decoding="async" loading="eager" fetchpriority="high"><span class="photo-label">出门少了，喜欢没有少</span></div><div class="photo photo-small"><span class="tape" aria-hidden="true"></span><img data-photo="1" src="assets/4a2756a2193117ecd88b.webp" alt="这一桌小幸福，是共同的记忆" decoding="async" loading="eager" fetchpriority="high"><span class="photo-label">这一桌小幸福，是共同的记忆</span></div><svg class="sketch-flower" viewBox="0 0 110 230" fill="none" stroke="#8c997c" stroke-width="1.3" aria-hidden="true"><path d="M47 222c8-50 7-96 3-145M49 159C19 150 15 125 16 122c27 3 34 24 33 37ZM51 135c28-9 38-32 37-40-24 6-34 22-37 40Z"/><g stroke="#b78781"><path d="M48 83C19 70 12 52 18 45c7-8 18 5 22 9-8-22-3-37 5-37 9 0 9 23 9 27 11-21 23-24 27-17 6 8-9 27-15 34 21-8 28-1 24 7-5 12-23 20-42 15Z"/><path d="M48 83c-10-12-13-23-8-29m8 29c4-17 8-25 18-22"/></g></svg><span class="handwritten">with all my love</span><span class="tiny-heart" aria-hidden="true">♡</span><span class="spark one" aria-hidden="true">✧</span><span class="spark two" aria-hidden="true">✦</span><span class="spark three" aria-hidden="true">✧</span><span class="art-note">LITTLE MOMENTS, ALWAYS YOU.</span></div><span class="vertical-note" aria-hidden="true">SOME THINGS ARE MEANT TO LAST</span>
     </section>
     <section class="chapter intro" data-page="1" aria-labelledby="intro-title" hidden><div class="intro-art"><div class="photo"><span class="tape" aria-hidden="true"></span><img data-photo="2" src="assets/e3fba2568ff5bd8e08f5.webp" alt="牵着手，慢慢走" decoding="async" loading="lazy"><span class="photo-label">故事不必盛大，有你就好</span></div></div><div class="intro-copy"><div class="chapter-heading"><div class="eyebrow">Chapter 01 · The beginning</div><h2 id="intro-title">在好多普通的日子里，<br>你是那个<em>特别的存在。</em></h2><p>有些遇见，让世界悄悄变了颜色。<br>从此，风景想和你分享，小事也想讲给你听。</p></div><div class="together"><strong id="days-number">∞</strong><span id="days-description">想和你一起收藏的，往后每一天</span></div><div class="little-lines"><p><b>01</b> 想陪你走很远的路，也想陪你好好吃饭。</p><p><b>02</b> 想记住你的每一次笑，和所有小小的心愿。</p><p><b>03</b> 更想把“有你真好”，认真说很多很多遍。</p></div><button class="inline-next" data-go="2">接下来，翻到我们的相册 <span aria-hidden="true">⟶</span></button></div></section>
-    <section class="chapter memories" data-page="2" aria-labelledby="memories-title" hidden><div class="chapter-heading"><div class="eyebrow">Chapter 02 · Little moments</div><h2 id="memories-title">把小小的瞬间，<em>好好收藏。</em></h2><p>从第一次靠近，到一起盼望明天。照片和视频，把我们的日子留在这里。</p></div><div class="memory-grid" id="memory-grid"></div><div class="album-navigation" id="album-navigation" aria-label="相册分页"><button class="nav-circle" id="album-prev" aria-label="上一组回忆">←</button><span class="album-range" id="album-range" aria-live="polite"></span><button class="nav-circle" id="album-next" aria-label="下一组回忆">→</button></div><p class="gallery-note" id="gallery-note">点击照片，靠近一点看 · 示意照片，等待放入我们的回忆</p></section>
-    <section class="chapter wish" data-page="3" aria-labelledby="wish-title" hidden><div class="wish-copy"><div class="chapter-heading"><div class="eyebrow">Chapter 03 · Make a wish</div><h2 id="wish-title">今天，你可以<br><em>贪心一点点。</em></h2><p>先闭上眼睛，许一个只属于你的愿望。<br>剩下的温柔，让往后的日子慢慢兑现。</p></div><ul class="wish-lines"><li><span>✧</span> 愿你拥有不用踮脚的幸福。</li><li><span>✧</span> 愿你永远有做自己的勇气。</li><li><span>✧</span> 愿你被爱，也自由。</li></ul></div><div class="cake-area"><div class="cake-halo" aria-hidden="true"></div><button class="cake-button" id="cake-button" aria-label="许好愿了，点击吹灭蜡烛"><svg viewBox="0 0 400 380" aria-hidden="true"><ellipse cx="200" cy="323" rx="163" ry="20" fill="#e4d7c9" opacity=".5"/><ellipse cx="200" cy="312" rx="147" ry="25" fill="#f9f5ed" stroke="#dacbb9"/><path d="M80 213v77c0 38 240 38 240 0v-77" fill="#e7bdba"/><path d="M80 250c60 26 180 26 240 0v20c-65 27-175 27-240 0" fill="#f2d3ca"/><ellipse cx="200" cy="215" rx="120" ry="37" fill="#fff3dd" stroke="#ead6c2"/><path d="M80 217c2 34 20 14 26 30s17 16 24-2 18 20 26 6 19-10 29 2 24 9 30-7 19 18 27 4 18-7 28-3 19-2 24-14 25 0 26-16c-52 32-178 32-240 0" fill="#fff3dd"/><g fill="#cf8b87"><circle cx="116" cy="209" r="10"/><circle cx="154" cy="232" r="10"/><circle cx="202" cy="239" r="10"/><circle cx="249" cy="233" r="10"/><circle cx="287" cy="211" r="10"/><circle cx="138" cy="192" r="9"/><circle cx="264" cy="192" r="9"/></g><g fill="#8a9478"><path d="m112 199 3-6 3 6 7-2-4 7h-13Z"/><path d="m245 224 3-6 4 6 7-2-4 7h-13Z"/><path d="m283 202 3-6 4 6 7-2-4 7h-13Z"/></g><g stroke="#b48d70" stroke-width=".7"><rect x="159" y="145" width="9" height="62" rx="3" fill="#e5b5ad"/><rect x="196" y="128" width="9" height="75" rx="3" fill="#d7bf8c"/><rect x="233" y="145" width="9" height="62" rx="3" fill="#e5b5ad"/></g><g stroke="#fff5de" stroke-width="2" opacity=".8"><path d="m159 155 9 5m-9 10 9 5m-9 10 9 5M196 139l9 5m-9 11 9 5m-9 11 9 5m-9 11 9 5M233 155l9 5m-9 10 9 5m-9 10 9 5"/></g><g stroke="#796553" stroke-width="1.5"><path d="M163 145v-8m37-9v-8m37 25v-8"/></g><g class="flame" fill="#e5ad59"><path d="M164 114c-15 17-8 26-1 26s14-9 1-26Z"/><path d="M201 96c-15 17-8 26-1 26s14-9 1-26Z"/><path d="M238 114c-15 17-8 26-1 26s14-9 1-26Z"/></g><g fill="none" stroke="#b68e78" stroke-width="1.3"><path d="m102 113 5 8m184 10-6 7m-35-58-2 9m-92-7 3 8"/></g></svg></button><p class="wish-instruction" id="wish-instruction">许好愿，就轻轻点一下蜡烛吧</p><p class="wish-result" id="wish-result" role="status"></p><button class="wish-reset" id="wish-reset" hidden>再许一个愿望</button></div></section>
-    <section class="chapter letter" data-page="4" aria-labelledby="letter-title" hidden><div class="letter-title"><div class="chapter-heading"><div class="eyebrow">Chapter 04 · From my heart</div><h2 id="letter-title">有一些话，<br>想认真<em>写给你。</em></h2><p>可能平时说得不够好，<br>所以今天，把心意放进这封信里。</p></div><div class="hand-note">To my favorite person.</div></div><div class="letter-stage"><button class="envelope" id="envelope" aria-expanded="false" aria-controls="letter-paper" aria-label="拆开写给思琪的信"><span class="seal" aria-hidden="true">♡</span><span class="envelope-label">To <span data-bind="callName">思琪</span> · 点击拆开这封信</span></button><article class="letter-paper" id="letter-paper" hidden><h3>亲爱的<span data-bind="callName">思琪</span>：</h3><div class="letter-body" id="letter-body"></div><div class="signature"><span data-bind="sender">最喜欢你的人</span><span>WITH ALL MY LOVE</span></div><button class="letter-close" id="letter-close">把信收好</button></article></div></section>
-    <section class="chapter finale" data-page="5" aria-labelledby="finale-title" hidden><span class="small-star" aria-hidden="true">✧</span><div class="eyebrow">The story goes on</div><h2 id="finale-title">生日快乐，<em><span data-bind="callName">思琪</span>。</em><br>下一页，还有我们。</h2><p>这一页写满祝福，往后每一页，都想和你一起写。<br>愿新的一岁，有热爱，有惊喜，也一直有我。</p><div class="finale-script">You're my favorite chapter.</div><button class="primary" id="celebrate">收下所有的喜欢 <span aria-hidden="true">♡</span></button><button class="replay" data-go="0">再读一遍我们的故事 ↺</button></section>
+    <section class="chapter memories" data-page="2" aria-labelledby="memories-title" hidden><div class="chapter-heading"><div class="eyebrow">Chapter 02 · Little moments</div><h2 id="memories-title">把小小的瞬间，<em>好好收藏。</em></h2><p>从第一次靠近，到一起盼望明天。照片和视频，把我们的日子留在这里。</p></div><div class="memory-grid" id="memory-grid"></div><div class="album-navigation" id="album-navigation" aria-label="相册分页"><button class="nav-circle" id="album-prev" aria-label="上一组回忆">←</button><span class="album-range" id="album-range" aria-live="polite"></span><button class="nav-circle" id="album-next" aria-label="下一组回忆">→</button></div><p class="gallery-note" id="gallery-note">14 段回忆，按时光的顺序收藏 · 点开照片或视频，读读写给你的话</p></section>
+    <section class="chapter wish" data-page="3" aria-labelledby="wish-title" hidden><div class="wish-copy"><div class="chapter-heading"><div class="eyebrow">Chapter 03 · Make a wish</div><h2 id="wish-title">今天，你可以<br><em>贪心一点点。</em></h2><p>先闭上眼睛，许一个只属于你的愿望。<br>剩下的温柔，让往后的日子慢慢兑现。</p></div><ul class="wish-lines"><li><span>✧</span> 愿你拥有不用踮脚的幸福。</li><li><span>✧</span> 愿你永远有做自己的勇气。</li><li><span>✧</span> 愿你被爱，也自由。</li></ul></div><div class="cake-area"><div class="cake-halo" aria-hidden="true"></div><button class="cake-button" id="cake-button" aria-label="许好愿了，点击吹灭蜡烛"><svg viewBox="0 0 400 380" aria-hidden="true"><ellipse cx="200" cy="323" rx="163" ry="20" fill="#e4d7c9" opacity=".5"/><ellipse cx="200" cy="312" rx="147" ry="25" fill="#f9f5ed" stroke="#dacbb9"/><path d="M80 213v77c0 38 240 38 240 0v-77" fill="#e7bdba"/><path d="M80 250c60 26 180 26 240 0v20c-65 27-175 27-240 0" fill="#f2d3ca"/><ellipse cx="200" cy="215" rx="120" ry="37" fill="#fff3dd" stroke="#ead6c2"/><path d="M80 217c2 34 20 14 26 30s17 16 24-2 18 20 26 6 19-10 29 2 24 9 30-7 19 18 27 4 18-7 28-3 19-2 24-14 25 0 26-16c-52 32-178 32-240 0" fill="#fff3dd"/><g fill="#cf8b87"><circle cx="116" cy="209" r="10"/><circle cx="154" cy="232" r="10"/><circle cx="202" cy="239" r="10"/><circle cx="249" cy="233" r="10"/><circle cx="287" cy="211" r="10"/><circle cx="138" cy="192" r="9"/><circle cx="264" cy="192" r="9"/></g><g fill="#8a9478"><path d="m112 199 3-6 3 6 7-2-4 7h-13Z"/><path d="m245 224 3-6 4 6 7-2-4 7h-13Z"/><path d="m283 202 3-6 4 6 7-2-4 7h-13Z"/></g><g stroke="#b48d70" stroke-width=".7"><rect x="159" y="145" width="9" height="62" rx="3" fill="#e5b5ad"/><rect x="196" y="128" width="9" height="75" rx="3" fill="#d7bf8c"/><rect x="233" y="145" width="9" height="62" rx="3" fill="#e5b5ad"/></g><g stroke="#fff5de" stroke-width="2" opacity=".8"><path d="m159 155 9 5m-9 10 9 5m-9 10 9 5M196 139l9 5m-9 11 9 5m-9 11 9 5m-9 11 9 5M233 155l9 5m-9 10 9 5m-9 10 9 5"/></g><g stroke="#796553" stroke-width="1.5"><path d="M163 145v-8m37-9v-8m37 25v-8"/></g><defs>
+  <linearGradient id="candle-flame-fill" x1="0" y1="1" x2="0" y2="0">
+    <stop offset="0" stop-color="#f58d36"/>
+    <stop offset=".45" stop-color="#ffc253"/>
+    <stop offset="1" stop-color="#ffe5a0"/>
+  </linearGradient>
+  <radialGradient id="candle-glow-fill">
+    <stop offset="0" stop-color="#ffc76a" stop-opacity=".55"/>
+    <stop offset=".45" stop-color="#ffd78d" stop-opacity=".25"/>
+    <stop offset="1" stop-color="#ffdb99" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<g class="candle-effects">
+  <g class="candle-source" transform="translate(163 137)" style="--flame-delay:-.3s;--out-delay:0ms;--smoke-delay:180ms">
+    <g class="candle-light">
+      <ellipse class="candle-glow" cx="0" cy="-15" rx="25" ry="34" fill="url(#candle-glow-fill)"/>
+      <g class="candle-fire">
+        <path d="M0 2C-11 1-12-9-5-18-2-23 0-27 1-33 6-25 15-14 10-6 8 0 4 3 0 2Z" fill="url(#candle-flame-fill)"/>
+        <path d="M1 1C-5 0-6-6-2-12L2-21C3-14 9-8 6-3 5 0 3 2 1 1Z" fill="#fff3bb"/>
+        <path d="M1 1C-2 0-2-3 1-8 4-4 5 1 1 1Z" fill="#fffbed"/>
+      </g>
+    </g>
+    <circle class="wick-ember" cy="1" r="1.8" fill="#de8c49"/>
+    <g class="candle-smoke" fill="none" stroke="#9c8c80" stroke-linecap="round">
+      <path d="M0 0C-7-8 8-14 2-24S-5-34 3-44" stroke-width="2"/>
+      <path d="M2-2C8-12-3-18 5-29" stroke-width="1" opacity=".45"/>
+    </g>
+  </g>
+  <g class="candle-source" transform="translate(200 120)" style="--flame-delay:-.9s;--out-delay:70ms;--smoke-delay:250ms">
+    <g class="candle-light">
+      <ellipse class="candle-glow" cx="0" cy="-15" rx="25" ry="34" fill="url(#candle-glow-fill)"/>
+      <g class="candle-fire">
+        <path d="M0 2C-11 1-12-9-5-18-2-23 0-27 1-33 6-25 15-14 10-6 8 0 4 3 0 2Z" fill="url(#candle-flame-fill)"/>
+        <path d="M1 1C-5 0-6-6-2-12L2-21C3-14 9-8 6-3 5 0 3 2 1 1Z" fill="#fff3bb"/>
+        <path d="M1 1C-2 0-2-3 1-8 4-4 5 1 1 1Z" fill="#fffbed"/>
+      </g>
+    </g>
+    <circle class="wick-ember" cy="1" r="1.8" fill="#de8c49"/>
+    <g class="candle-smoke" fill="none" stroke="#9c8c80" stroke-linecap="round">
+      <path d="M0 0C-7-8 8-14 2-24S-5-34 3-44" stroke-width="2"/>
+      <path d="M2-2C8-12-3-18 5-29" stroke-width="1" opacity=".45"/>
+    </g>
+  </g>
+  <g class="candle-source" transform="translate(237 137)" style="--flame-delay:-.6s;--out-delay:130ms;--smoke-delay:310ms">
+    <g class="candle-light">
+      <ellipse class="candle-glow" cx="0" cy="-15" rx="25" ry="34" fill="url(#candle-glow-fill)"/>
+      <g class="candle-fire">
+        <path d="M0 2C-11 1-12-9-5-18-2-23 0-27 1-33 6-25 15-14 10-6 8 0 4 3 0 2Z" fill="url(#candle-flame-fill)"/>
+        <path d="M1 1C-5 0-6-6-2-12L2-21C3-14 9-8 6-3 5 0 3 2 1 1Z" fill="#fff3bb"/>
+        <path d="M1 1C-2 0-2-3 1-8 4-4 5 1 1 1Z" fill="#fffbed"/>
+      </g>
+    </g>
+    <circle class="wick-ember" cy="1" r="1.8" fill="#de8c49"/>
+    <g class="candle-smoke" fill="none" stroke="#9c8c80" stroke-linecap="round">
+      <path d="M0 0C-7-8 8-14 2-24S-5-34 3-44" stroke-width="2"/>
+      <path d="M2-2C8-12-3-18 5-29" stroke-width="1" opacity=".45"/>
+    </g>
+  </g>
+</g>
+<g fill="none" stroke="#b68e78" stroke-width="1.3"><path d="m102 113 5 8m184 10-6 7m-35-58-2 9m-92-7 3 8"/></g></svg></button><p class="wish-instruction" id="wish-instruction">先许一个愿望，再轻点蛋糕吹灭蜡烛</p><p class="wish-result" id="wish-result" role="status"></p><button class="wish-reset" id="wish-reset" hidden>再许一个愿望</button></div></section>
+    <section class="chapter letter" data-page="4" aria-labelledby="letter-title" hidden><div class="letter-title"><div class="chapter-heading"><div class="eyebrow">Chapter 04 · From my heart</div><h2 id="letter-title">有一些话，<br>想认真<em>写给你。</em></h2><p>可能平时说得不够好，<br>所以今天，把心意放进这封信里。</p></div><div class="hand-note">To my favorite person.</div></div><div class="letter-stage"><button class="envelope" id="envelope" aria-expanded="false" aria-controls="letter-paper" aria-label="拆开写给张琪的信"><span class="seal" aria-hidden="true">♡</span><span class="envelope-label">To <span data-bind="callName">张琪</span> · 点击拆开这封信</span></button><article class="letter-paper" id="letter-paper" hidden><h3>亲爱的<span data-bind="callName">张琪</span>：</h3><div class="letter-body" id="letter-body"></div><div class="signature"><span data-bind="sender">最喜欢你的人</span><span>WITH ALL MY LOVE</span></div><button class="letter-close" id="letter-close">把信收好</button></article></div></section>
+    <section class="chapter finale" data-page="5" aria-labelledby="finale-title" hidden><span class="small-star" aria-hidden="true">✧</span><div class="eyebrow">The story goes on</div><h2 id="finale-title">生日快乐，<em><span data-bind="callName">张琪</span>。</em><br>下一页，还有我们。</h2><p>这一页写满祝福，往后每一页，都想和你一起写。<br>愿新的一岁，有热爱，有惊喜，也一直有我。</p><div class="finale-script">You're my favorite chapter.</div><button class="primary" id="celebrate">收下所有的喜欢 <span aria-hidden="true">♡</span></button><button class="replay" data-go="0">再读一遍我们的故事 ↺</button></section>
   </main>
-  <footer class="book-footer"><nav class="chapter-tabs" aria-label="选择章节"><button class="chapter-tab" data-go="0" aria-current="step"><span>01</span>封面</button><button class="chapter-tab" data-go="1"><span>02</span>初遇</button><button class="chapter-tab" data-go="2"><span>03</span>回忆</button><button class="chapter-tab" data-go="3"><span>04</span>心愿</button><button class="chapter-tab" data-go="4"><span>05</span>情书</button><button class="chapter-tab" data-go="5"><span>06</span>未来</button></nav><div class="page-navigation"><button class="nav-circle" id="prev" disabled aria-label="上一页">←</button><span class="page-counter" id="page-counter">01 / 06</span><button class="nav-circle" id="next" aria-label="下一页">→</button></div></footer><div class="bottom-note">MADE WITH <span>♡</span> ONLY FOR <span id="footer-name">张思琪</span></div><div id="page-announcement" class="sr-only" role="status" aria-live="polite"></div>
+  <footer class="book-footer"><nav class="chapter-tabs" aria-label="选择章节"><button class="chapter-tab" data-go="0" aria-current="step"><span>01</span>封面</button><button class="chapter-tab" data-go="1"><span>02</span>初遇</button><button class="chapter-tab" data-go="2"><span>03</span>回忆</button><button class="chapter-tab" data-go="3"><span>04</span>心愿</button><button class="chapter-tab" data-go="4"><span>05</span>情书</button><button class="chapter-tab" data-go="5"><span>06</span>未来</button></nav><div class="page-navigation"><button class="nav-circle" id="prev" disabled aria-label="上一页">←</button><span class="page-counter" id="page-counter">01 / 06</span><button class="nav-circle" id="next" aria-label="下一页">→</button></div></footer><div class="bottom-note">MADE WITH <span>♡</span> ONLY FOR <span id="footer-name">张琪</span></div><div id="page-announcement" class="sr-only" role="status" aria-live="polite"></div>
   <div class="petals" id="petals" aria-hidden="true"></div><div class="toast" id="toast" role="status"></div>
-  <dialog class="editor" id="editor" aria-labelledby="editor-title"><div class="dialog-head"><div><h2 id="editor-title">把这份礼物，变成我们的</h2><p>填几句话，放几张照片，就很特别。</p></div><button class="close-dialog" data-close="editor" aria-label="关闭编辑面板">×</button></div><form id="edit-form"><div class="editor-content"><div class="field-row"><label class="field">她的名字<input name="recipient" maxlength="30" required></label><label class="field">你对她的称呼<input name="callName" maxlength="15" required></label></div><div class="field-row"><label class="field">生日文字<input name="birthday" maxlength="40" required><small>农历日期直接填写，不自动换算公历。</small></label><label class="field">你的落款<input name="sender" maxlength="30" required></label></div><label class="field">在一起的日子 · 可选<input name="togetherSince" type="date"><small>填公历日期，会显示你们相伴的天数；留空显示无限符号。</small></label><h3 class="editor-section-title">我们的回忆 · A — N</h3><p class="upload-note">按顺序展开每一段，可以修改标题、旁边的文字，或替换照片 / 视频。</p><div id="memory-editors"></div><p class="upload-note">替换视频支持浏览器可播放的 MP4 / WebM，建议 H.264 编码，每段不超过 35 MB。所有内容都会包含在导出的网页中。</p><details class="cover-settings"><summary>封面与初遇章节的三张照片</summary><div id="photo-editors"></div></details><p class="upload-note">支持 JPG / PNG / WebP，每张不超过 15 MB。照片会自动缩小，方便打开与分享。</p><h3 class="editor-section-title">给这本回忆册配一首歌</h3><div class="audio-config"><label class="upload">选择音乐<input type="file" id="audio-upload" accept="audio/*"></label><span class="audio-name" id="audio-name">默认：轻柔的钢琴音色</span><button type="button" class="small-link" id="remove-audio">使用默认音乐</button></div><p class="upload-note">支持浏览器可播放的 MP3 / M4A / WAV 等音频，建议不超过 25 MB。收礼物的人点击右上角即可播放。</p><label class="field">想对她说的话<textarea name="letter" maxlength="12000" required></textarea></label><p class="upload-note">编辑内容保存在当前浏览器。发给她之前，点击「导出完整网页」：文字、照片、视频和音乐会打包在一个 HTML 文件里。</p></div><div class="editor-actions"><div class="editor-actions-left"><button type="submit" class="secondary">保存并预览</button><button type="button" class="primary" id="export-button">导出完整网页 <span aria-hidden="true">↓</span></button></div><span class="save-note" id="save-note">属于你们的小小定制</span></div></form></dialog>
+
   <dialog class="lightbox memory-reader" id="lightbox" aria-labelledby="memory-title" aria-describedby="memory-story">
   <header class="reader-header"><div class="eyebrow">Our memories · 每一帧，都有话想对你说</div><button class="close-dialog" data-close="lightbox" aria-label="关闭回忆">×</button></header>
   <div class="reader-grid"><div class="reader-media"><img id="lightbox-image" alt=""><video id="memory-video" controls playsinline preload="none" hidden></video><button class="reader-play" id="reader-play" aria-label="播放回忆视频" hidden>▶</button></div>
   <div class="reader-story"><span class="reader-chapter" id="memory-chapter"></span><h2 id="memory-title"></h2><p class="memory-story" id="memory-story"></p><p class="reader-signoff">A little moment, a lot of love.</p></div></div>
   <p id="reader-status" class="reader-status" role="status" hidden></p><footer class="reader-footer"><button id="memory-prev" aria-label="上一段回忆">← 上一段回忆</button><span class="reader-counter" id="reader-counter"></span><button id="memory-next" aria-label="下一段回忆">下一段回忆 →</button></footer><div class="reader-progress" aria-hidden="true"><span id="reader-progress"></span></div><div class="sr-only" id="reader-announcement" aria-live="polite"></div>
   </dialog>
-  <script id="gift-data" type="application/json">{"id":"siqi-album-v2-20261026","recipient":"张思琪","callName":"思琪","birthday":"农历十月廿二","sender":"最喜欢你的人","togetherSince":"","letter":"生日快乐呀，思琪。\n\n想了很久，要怎么给你一份特别的生日礼物。后来觉得，最想送给你的，是一份被认真放在心上的感觉。\n\n谢谢你出现在我的生活里。因为你，很多普通的小事都有了值得期待的理由。我想和你分享日落，也想听你说今天发生了什么；想陪你去很远的地方，也想陪你过好眼前每一个平凡的日子。\n\n新的一岁，希望你少一点烦恼，多一点快乐。可以勇敢，也可以偶尔任性；可以闪闪发光，也可以什么都不做。你不需要成为别人期待的样子，做你自己，就已经很好。\n\n我会认真喜欢你，也认真陪着你。以后的生日，还想一遍一遍对你说：\n\n遇见你，真好。","photos":[{"src":"assets/d51d69c613be28c0dd05.jpg","caption":"下一年，也想和你一起","custom":true,"preview":"assets/26f0550f9626517a8b54.webp"},{"src":"assets/b5c4f9169f04bcaba767.jpg","caption":"把所有温柔，都送给你","custom":true,"preview":"assets/094308a0d483f78b5900.webp"},{"src":"assets/cd8752a263869f77bc13.jpg","caption":"牵着手，慢慢走","custom":true,"preview":"assets/e3fba2568ff5bd8e08f5.webp"}],"audio":null,"memories":[{"id":"A","title":"第一次，成为彼此的依赖","story":"再看这段视频，还是会想起我们一点点靠近的样子。原来，成为彼此的依赖，是从愿意分享心事、愿意把脆弱交给对方开始的。那时的我们或许还不知道以后会经历什么，但从那一刻起，很多事都不必再一个人面对了。\n\n我很喜欢故事的这个开头：镜头里有你，我身边也有你。","originalName":"A.第一次成为彼此的依赖.mp4","type":"video","src":"assets/6ef9a0193457d594fcff.mp4","poster":"assets/7afe6c2c4126161dd127.jpg","duration":"00:15","thumbnail":"assets/30595660509c3bb0d68d.webp"},{"id":"B","title":"你发来的那一小段心动","story":"你拍给我看的这段视频，我一直想好好留着。现在回头看，最舍不得忘记的，是你愿意把那一刻的自己分享给我。短短几秒，因为镜头里的人是你，就有了被反复收藏的理由。\n\n有些心动不需要很大的场面。收到你的消息，点开这段视频，就已经是值得开心的小事。","originalName":"B.第一次送你时候拍给我看的视频.mp4","type":"video","src":"assets/6c9786f5b35ca36bd63c.mp4","poster":"assets/f6c3c8de3d19944bf681.jpg","duration":"00:07","thumbnail":"assets/45a98f46fbf6ae0d6ea8.webp"},{"id":"C","title":"第一只包包，装着我的心意","story":"这是我第一次送给老婆的包包，也是我认真想着“你会不会喜欢”的一次心意。想把你喜欢的东西送到你手里，也想把那些说起来有点笨拙的喜欢，藏进你用得到的小物件里。\n\n希望它陪着你的时候，你也会偶尔想起：有个人，正在认真地喜欢你。","originalName":"C.第一次送给老婆的包包.mp4","type":"video","src":"assets/ac50b6ff9ff141d4ad37.mp4","poster":"assets/ecb9b9bee0a1d378d016.jpg","duration":"00:15","thumbnail":"assets/42a3c18286264207d5c6.webp"},{"id":"D","title":"第一枚戒指，和以后的我们","story":"两只手靠在一起，小小的戒指也留在了这张照片里。它没有很大的体积，却装下了我对“我们”很认真的期待。比起戴上它的那一刻，我更期待往后那些牵着你的手、一起走过的日子。\n\n想把这份喜欢，慢慢戴成习惯，也慢慢过成生活。","originalName":"D.我们的第一枚戒子.jpg","type":"image","src":"assets/cd8752a263869f77bc13.jpg","poster":"assets/1ef2f73633bb9ad15253.jpg","thumbnail":"assets/54dbaf1ea32b1d38aa79.webp"},{"id":"E","title":"把约定写下来，也放在心上","story":"后来，我们把对彼此的心意写进了这份约定。再看到上面的名字，还是会觉得，这是一件很温柔、也很认真的事。那些关于长久的话，不只是留在纸上的字，也是我想在相处里一点一点做到的事。\n\n你写下的“幸福万万岁”，我也想和你一起，慢慢实现。","originalName":"E.后续约定好的.jpg","type":"image","src":"assets/5057b2b0d607e2cb5f5c.jpg","poster":"assets/9d11c66e14a86c57c7bd.jpg","thumbnail":"assets/f555933970a3bbdced9b.webp"},{"id":"F","title":"离开家乡，也一起望向明天","story":"后来，我们离开了熟悉的家乡，开始面对新的生活。换了地方，很多事情都要重新适应，但想到这些日子是和你一起走过的，陌生里也就多了一点踏实。未来未必每一步都能提前看清，可我仍然很期待。\n\n因为在我们一起盼望的明天里，我最想看见的，始终是你。","originalName":"F.后来我们离开家乡,在这里我们共同欲望明天.mp4","type":"video","src":"assets/949acbc5de43c9c0449c.mp4","poster":"assets/f90c44f4d2512475565c.jpg","duration":"00:09","thumbnail":"assets/006a86aa54417c8ace4e.webp"},{"id":"G","title":"生活里的美好，我还记得","story":"生活不总是轻松的，可再看到视频里的你，我还是能记起那些很具体的美好。也许只是一个表情、一小段镜头，放在别人眼里再普通不过，却足够让我停下来，多看好几遍。\n\n原来值得珍藏的日子，并不一定发生过大事。有你在里面，就已经很特别。","originalName":"G.生活美好我仍能记住.mp4","type":"video","src":"assets/b9b7fab6a28706fbf4a9.mp4","poster":"assets/620272580fcc4cd42c5b.jpg","duration":"00:15","thumbnail":"assets/68f367cf46e95333f321.webp"},{"id":"H","title":"上一个生日，和这一次祝福","story":"这是上一次你的生日。鲜花和礼物留在了照片里，而我想送给你的那份在意，也想一直延续到今天。再一次为你准备生日惊喜的时候，才发现我想说的话其实很简单：希望你开心，希望你被认真爱着。\n\n思琪，生日快乐。还想陪你迎接很多个新的一岁。","originalName":"H.这是上次你的生日.jpg","type":"image","src":"assets/b5c4f9169f04bcaba767.jpg","poster":"assets/137ae11173db9519de77.jpg","thumbnail":"assets/b707c4f2e73823786797.webp"},{"id":"I","title":"这一桌小幸福，是共同的记忆","story":"蛋糕、礼物，还有镜头前比出的那颗心，把这个瞬间留得很完整。现在看起来，打动我的不只是这些精心准备的小东西，更是我们愿意为彼此花心思，把普通的一天过得有一点特别。\n\n这些共同收藏的记忆，会提醒我：被你放在心上的感觉，真的很好。","originalName":"I.也是我们共同的记忆.jpg","type":"image","src":"assets/1c7c04b5c67a1bc32632.jpg","poster":"assets/d58ffe1435c3931ae516.jpg","thumbnail":"assets/5e42a087026cd3ebbcd4.webp"},{"id":"J","title":"有你，生活的苦也有了回甘","story":"生活偶尔会有点苦，疲惫和烦恼也不会因为相爱就全部消失。但看到你坐在对面，和你一起好好吃一顿饭，就觉得一天里仍然有值得期待的部分。那些没有标准答案的难题，可以先放一放。\n\n我想珍惜的幸福，也包括这样简单的一幕：饭是热的，你在身边。","originalName":"J.让生活的苦涩.jpg","type":"image","src":"assets/7ecb0a321dc54f34c35b.jpg","poster":"assets/b76f5c234377aa82ffd4.jpg","thumbnail":"assets/8a3b2ee3e31777c14d43.webp"},{"id":"K","title":"在这里，和你迎接新的一年","story":"我们在这里一起迎接了新的一年。街上的灯光、身边的热闹，都成了这张合照的背景；而我最想记住的，是新旧交替的时候，你就在我旁边。日历会翻到新的页码，愿望也会慢慢更新。\n\n但有一个愿望我想一直留着：下一年、再下一年，还想和你一起迎接。","originalName":"K.我们在这里迎接新的一年.jpg","type":"image","src":"assets/d51d69c613be28c0dd05.jpg","poster":"assets/f1edc590358b38385ebc.jpg","thumbnail":"assets/07b5ed8b58aedb4fb80a.webp"},{"id":"L","title":"出门少了，喜欢没有少","story":"后来我开始工作，我们一起出去的次数慢慢少了。再看到这张照片，会更珍惜那些能把时间好好留给你的时刻。忙碌是生活的一部分，但我不想让陪伴变成一句总要等到以后的话。\n\n往后也想认真腾出时间，陪你吃饭、散步、拍照，把属于我们的日常继续攒起来。","originalName":"L.后来我工作了慢慢的出去变少了.jpg","type":"image","src":"assets/e27810c664295242f4f7.jpg","poster":"assets/6b7c9bae9692c6ead7c3.jpg","thumbnail":"assets/21352559af022a2ad731.webp"},{"id":"M","title":"你送的表，陪我走过每一天","story":"这只表是老婆送给我的。它戴在手腕上，陪我经过一天又一天，也让我在抬手看时间的时候，多想起一个人。礼物会成为日常的一部分，而你挑选它、送给我的那份心意，我不想习以为常。\n\n时间一直往前走，我想把更多时间，留给送我这只表的你。","originalName":"M.老婆送我的表.jpg","type":"image","src":"assets/02238d4d1d4d1fc272e3.jpg","poster":"assets/c8b551a973b80e7b0881.jpg","thumbnail":"assets/c42eb2cd99d0017efe5e.webp"},{"id":"N","title":"小小的贴纸，也值得好好珍藏","story":"你送给我的贴纸，贴在杯子上，也留在了这张照片里。它是很小的一份心意，却让一件日常的东西变得格外特别。喜欢原来可以这么具体：是看得见的一点字迹，也是拿起杯子时会想起的你。\n\n这本相册先翻到这里，但你给我的这些温柔，我还想一直记下去。","originalName":"N.老婆送给我贴纸.jpg","type":"image","src":"assets/1562fde678445d6fd610.jpg","poster":"assets/9e915d6812872d5d63c2.jpg","thumbnail":"assets/c71fa3e05b0f516f0453.webp"}],"previousDraftId":"siqi-original-v1"}</script>
+  <script id="gift-data" type="application/json">{"recipient":"张琪","callName":"张琪","birthday":"农历十月廿二","sender":"最喜欢你的人","togetherSince":"2025-09-06","letter":"张琪，生日快乐。\n\n想起刚在一起的日子，心里还是会觉得很甜。那些一起笑过、一起期待过的时刻，我到现在都很珍惜。翻着我们的照片，才发现，原来有这么多小小的幸福，被我们留在了时光里。\n\n后来，工作越来越忙，带你出去玩的次数也慢慢少了。回头想想，会觉得有些可惜。其实快乐不一定要去很远的地方，陪你逛一逛，吃点喜欢的东西，拍几张新的合照，就已经很好。我想多留一些这样的时间给我们，让相册里再添上许多你开心的样子。\n\n现在你回家乡了，我真的很想你。想听你说说今天过得怎么样，想把遇到的有趣小事讲给你听，也盼着下一次见面，能牵着你的手，好好出去走走。有时候翻到我们的照片，会不自觉地看很久，想起那一天，也想起你。\n\n我们也有过争执，吵过架，我也会犯错。有时候话没说好，事情没做好，让你难过了，对不起。我会认真记住，也好好改。有分歧的时候，我想学着先把你的话听完，把自己的心意说清楚，和你一起把问题解决。\n\n有一句话，我一直想认真告诉你：从我们在一起的那天起，我就一直盼着能和你走下去，从来没有想过要和你分别。即使有过不开心，我心里想的，仍然是等我们把话说开，再开开心心地迎接明天。\n\n以后，我会认真留出时间，和你去想去的地方，做些让我们都开心的小事。一起散步，一起看风景，一起发现好吃的店。还有很多新的回忆，我都想和你慢慢攒起来。\n\n今天是你的生日，愿你少一点烦恼，多一点轻松；愿你心里的小愿望，都能慢慢实现。也希望新的一岁里，我们能多一些理解，多一些耐心，多一些一起笑起来的时刻。\n\n我很珍惜你，也很珍惜我们。想你，也期待见到你。明天、后天，还有以后的许多天，我都想继续牵着你的手，一起去看看生活会带来怎样的美好。\n\n生日快乐，我喜欢的张琪。","photos":[{"src":"assets/e27810c664295242f4f7.jpg","caption":"出门少了，喜欢没有少","custom":true,"preview":"assets/95c20b39eb873d4186d4.webp"},{"src":"assets/1c7c04b5c67a1bc32632.jpg","caption":"这一桌小幸福，是共同的记忆","custom":true,"preview":"assets/4a2756a2193117ecd88b.webp"},{"src":"assets/cd8752a263869f77bc13.jpg","caption":"牵着手，慢慢走","custom":true,"preview":"assets/e3fba2568ff5bd8e08f5.webp"}],"audio":{"name":"到时说爱我 · 茜拉","volume":0.3,"src":"assets/83130ec00bf7e80d1117.m4a"},"memories":[{"id":"A","title":"第一次，成为彼此的依赖","story":"再看这段视频，还是会想起我们一点点靠近的样子。原来，成为彼此的依赖，是从愿意分享心事、愿意把脆弱交给对方开始的。那时的我们或许还不知道以后会经历什么，但从那一刻起，很多事都不必再一个人面对了。\n\n我很喜欢故事的这个开头：镜头里有你，我身边也有你。","originalName":"A.第一次成为彼此的依赖.mp4","type":"video","src":"assets/6ef9a0193457d594fcff.mp4","poster":"assets/7afe6c2c4126161dd127.jpg","duration":"00:15","thumbnail":"assets/30595660509c3bb0d68d.webp"},{"id":"B","title":"你发来的那一小段心动","story":"你拍给我看的这段视频，我一直想好好留着。现在回头看，最舍不得忘记的，是你愿意把那一刻的自己分享给我。短短几秒，因为镜头里的人是你，就有了被反复收藏的理由。\n\n有些心动不需要很大的场面。收到你的消息，点开这段视频，就已经是值得开心的小事。","originalName":"B.第一次送你时候拍给我看的视频.mp4","type":"video","src":"assets/6c9786f5b35ca36bd63c.mp4","poster":"assets/f6c3c8de3d19944bf681.jpg","duration":"00:07","thumbnail":"assets/45a98f46fbf6ae0d6ea8.webp"},{"id":"C","title":"第一只包包，装着我的心意","story":"这是我第一次送给老婆的包包，也是我认真想着“你会不会喜欢”的一次心意。想把你喜欢的东西送到你手里，也想把那些说起来有点笨拙的喜欢，藏进你用得到的小物件里。\n\n希望它陪着你的时候，你也会偶尔想起：有个人，正在认真地喜欢你。","originalName":"C.第一次送给老婆的包包.mp4","type":"video","src":"assets/ac50b6ff9ff141d4ad37.mp4","poster":"assets/ecb9b9bee0a1d378d016.jpg","duration":"00:15","thumbnail":"assets/42a3c18286264207d5c6.webp"},{"id":"D","title":"第一枚戒指，和以后的我们","story":"两只手靠在一起，小小的戒指也留在了这张照片里。它没有很大的体积，却装下了我对“我们”很认真的期待。比起戴上它的那一刻，我更期待往后那些牵着你的手、一起走过的日子。\n\n想把这份喜欢，慢慢戴成习惯，也慢慢过成生活。","originalName":"D.我们的第一枚戒子.jpg","type":"image","src":"assets/cd8752a263869f77bc13.jpg","poster":"assets/1ef2f73633bb9ad15253.jpg","thumbnail":"assets/54dbaf1ea32b1d38aa79.webp"},{"id":"E","title":"把约定写下来，也放在心上","story":"后来，我们把对彼此的心意写进了这份约定。再看到上面的名字，还是会觉得，这是一件很温柔、也很认真的事。那些关于长久的话，不只是留在纸上的字，也是我想在相处里一点一点做到的事。\n\n你写下的“幸福万万岁”，我也想和你一起，慢慢实现。","originalName":"E.后续约定好的.jpg","type":"image","src":"assets/5057b2b0d607e2cb5f5c.jpg","poster":"assets/9d11c66e14a86c57c7bd.jpg","thumbnail":"assets/f555933970a3bbdced9b.webp"},{"id":"F","title":"离开家乡，也一起望向明天","story":"后来，我们离开了熟悉的家乡，开始面对新的生活。换了地方，很多事情都要重新适应，但想到这些日子是和你一起走过的，陌生里也就多了一点踏实。未来未必每一步都能提前看清，可我仍然很期待。\n\n因为在我们一起盼望的明天里，我最想看见的，始终是你。","originalName":"F.后来我们离开家乡,在这里我们共同欲望明天.mp4","type":"video","src":"assets/949acbc5de43c9c0449c.mp4","poster":"assets/f90c44f4d2512475565c.jpg","duration":"00:09","thumbnail":"assets/006a86aa54417c8ace4e.webp"},{"id":"G","title":"生活里的美好，我还记得","story":"生活不总是轻松的，可再看到视频里的你，我还是能记起那些很具体的美好。也许只是一个表情、一小段镜头，放在别人眼里再普通不过，却足够让我停下来，多看好几遍。\n\n原来值得珍藏的日子，并不一定发生过大事。有你在里面，就已经很特别。","originalName":"G.生活美好我仍能记住.mp4","type":"video","src":"assets/b9b7fab6a28706fbf4a9.mp4","poster":"assets/620272580fcc4cd42c5b.jpg","duration":"00:15","thumbnail":"assets/68f367cf46e95333f321.webp"},{"id":"H","title":"上一个生日，和这一次祝福","story":"这是上一次你的生日。鲜花和礼物留在了照片里，而我想送给你的那份在意，也想一直延续到今天。再一次为你准备生日惊喜的时候，才发现我想说的话其实很简单：希望你开心，希望你被认真爱着。\n\n张琪，生日快乐。还想陪你迎接很多个新的一岁。","originalName":"H.这是上次你的生日.jpg","type":"image","src":"assets/b5c4f9169f04bcaba767.jpg","poster":"assets/137ae11173db9519de77.jpg","thumbnail":"assets/b707c4f2e73823786797.webp"},{"id":"I","title":"这一桌小幸福，是共同的记忆","story":"蛋糕、礼物，还有镜头前比出的那颗心，把这个瞬间留得很完整。现在看起来，打动我的不只是这些精心准备的小东西，更是我们愿意为彼此花心思，把普通的一天过得有一点特别。\n\n这些共同收藏的记忆，会提醒我：被你放在心上的感觉，真的很好。","originalName":"I.也是我们共同的记忆.jpg","type":"image","src":"assets/1c7c04b5c67a1bc32632.jpg","poster":"assets/d58ffe1435c3931ae516.jpg","thumbnail":"assets/5e42a087026cd3ebbcd4.webp"},{"id":"J","title":"有你，生活的苦也有了回甘","story":"生活偶尔会有点苦，疲惫和烦恼也不会因为相爱就全部消失。但看到你坐在对面，和你一起好好吃一顿饭，就觉得一天里仍然有值得期待的部分。那些没有标准答案的难题，可以先放一放。\n\n我想珍惜的幸福，也包括这样简单的一幕：饭是热的，你在身边。","originalName":"J.让生活的苦涩.jpg","type":"image","src":"assets/7ecb0a321dc54f34c35b.jpg","poster":"assets/b76f5c234377aa82ffd4.jpg","thumbnail":"assets/8a3b2ee3e31777c14d43.webp"},{"id":"K","title":"在这里，和你迎接新的一年","story":"我们在这里一起迎接了新的一年。街上的灯光、身边的热闹，都成了这张合照的背景；而我最想记住的，是新旧交替的时候，你就在我旁边。日历会翻到新的页码，愿望也会慢慢更新。\n\n但有一个愿望我想一直留着：下一年、再下一年，还想和你一起迎接。","originalName":"K.我们在这里迎接新的一年.jpg","type":"image","src":"assets/d51d69c613be28c0dd05.jpg","poster":"assets/f1edc590358b38385ebc.jpg","thumbnail":"assets/07b5ed8b58aedb4fb80a.webp"},{"id":"L","title":"出门少了，喜欢没有少","story":"后来我开始工作，我们一起出去的次数慢慢少了。再看到这张照片，会更珍惜那些能把时间好好留给你的时刻。忙碌是生活的一部分，但我不想让陪伴变成一句总要等到以后的话。\n\n往后也想认真腾出时间，陪你吃饭、散步、拍照，把属于我们的日常继续攒起来。","originalName":"L.后来我工作了慢慢的出去变少了.jpg","type":"image","src":"assets/e27810c664295242f4f7.jpg","poster":"assets/6b7c9bae9692c6ead7c3.jpg","thumbnail":"assets/21352559af022a2ad731.webp"},{"id":"M","title":"你送的表，陪我走过每一天","story":"这只表是老婆送给我的。它戴在手腕上，陪我经过一天又一天，也让我在抬手看时间的时候，多想起一个人。礼物会成为日常的一部分，而你挑选它、送给我的那份心意，我不想习以为常。\n\n时间一直往前走，我想把更多时间，留给送我这只表的你。","originalName":"M.老婆送我的表.jpg","type":"image","src":"assets/02238d4d1d4d1fc272e3.jpg","poster":"assets/c8b551a973b80e7b0881.jpg","thumbnail":"assets/c42eb2cd99d0017efe5e.webp"},{"id":"N","title":"小小的贴纸，也值得好好珍藏","story":"你送给我的贴纸，贴在杯子上，也留在了这张照片里。它是很小的一份心意，却让一件日常的东西变得格外特别。喜欢原来可以这么具体：是看得见的一点字迹，也是拿起杯子时会想起的你。\n\n这本相册先翻到这里，但你给我的这些温柔，我还想一直记下去。","originalName":"N.老婆送给我贴纸.jpg","type":"image","src":"assets/1562fde678445d6fd610.jpg","poster":"assets/9e915d6812872d5d63c2.jpg","thumbnail":"assets/c71fa3e05b0f516f0453.webp"}]}</script>
   <script>
 (()=>{
   'use strict';
-  const originalDocument='<!doctype html>\n'+document.documentElement.outerHTML;
-  const initial=JSON.parse(document.getElementById('gift-data').textContent);
-  let config=structuredClone(initial),editing=null,page=0,busy=false,toastTimer,mediaBusy=0;
+  const config=JSON.parse(document.getElementById('gift-data').textContent);
+  let page=0,toastTimer;
   let albumPage=0,memoryIndex=0,resumeMusicAfterVideo=false;
   const $=s=>document.querySelector(s),$$=s=>Array.from(document.querySelectorAll(s));
   const pageNames=['封面','初遇','回忆','心愿','情书','未来'];
-  const editor=$('#editor'),form=$('#edit-form'),reader=$('#lightbox'),video=$('#memory-video');
-  const audio=new Audio();audio.loop=true;audio.volume=.45;
-  let audioContext,musicTimer,musicPlaying=false,musicStarting=false,beat=0,musicVersion=0;
+  const reader=$('#lightbox'),video=$('#memory-video');
+  const audio=new Audio();audio.loop=true;audio.preload='none';audio.volume=config.audio?.volume??.45;
+  let audioContext,musicTimer,musicPlaying=false,musicStarting=false,autoplayPending=true,beat=0,musicVersion=0;
   const voices=new Set();
   function toast(message){$('#toast').textContent=message;$('#toast').classList.add('visible');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('#toast').classList.remove('visible'),4000)}
-  const database=new Promise(resolve=>{try{const req=indexedDB.open('birthday-letter-local',1);req.onupgradeneeded=()=>req.result.createObjectStore('gifts');req.onsuccess=()=>resolve(req.result);req.onerror=()=>resolve(null);req.onblocked=()=>resolve(null)}catch{resolve(null)}});
-  async function readDraft(id){const db=await database;if(!db)return null;return new Promise(resolve=>{try{const req=db.transaction('gifts').objectStore('gifts').get(id);req.onsuccess=()=>resolve(req.result||null);req.onerror=()=>resolve(null)}catch{resolve(null)}})}
-  async function loadDraft(){
-    const draft=await readDraft(initial.id);
-    if(draft&&Array.isArray(draft.memories)&&draft.memories.length&&Array.isArray(draft.photos)&&draft.photos.length===3){config=draft;return}
-    if(initial.previousDraftId){const previous=await readDraft(initial.previousDraftId);if(previous){for(const key of ['recipient','callName','birthday','sender','togetherSince','letter','audio'])if(previous[key]!==undefined)config[key]=previous[key]}}
-  }
-  async function persist(){const db=await database;if(!db)return false;return new Promise(resolve=>{try{const tx=db.transaction('gifts','readwrite');tx.objectStore('gifts').put(structuredClone(config),initial.id);tx.oncomplete=()=>resolve(true);tx.onerror=()=>resolve(false);tx.onabort=()=>resolve(false)}catch{resolve(false)}})}
   function dayCount(value){if(!/^\d{4}-\d{2}-\d{2}$/.test(value))return null;const p=value.split('-').map(Number),now=new Date();return Math.floor((Date.UTC(now.getFullYear(),now.getMonth(),now.getDate())-Date.UTC(p[0],p[1]-1,p[2]))/86400000)+1}
+  function updateTogetherTime(){
+    const count=dayCount(config.togetherSince);
+    $('#days-number').textContent=count!==null&&count>0?count.toLocaleString():'∞';
+    $('#days-description').textContent=count!==null&&count>0?`天 · 自 ${config.togetherSince.replaceAll('-','.')} 起，每一天都多了一个你`:'想和你一起收藏的，往后每一天';
+  }
   function render(){
     $$('[data-bind]').forEach(el=>el.textContent=config[el.dataset.bind]||'');document.title=`写给${config.callName} · 生日快乐`;
-    $('#brand-name').textContent=config.recipient==='张思琪'?'Siqi':config.callName;$('#footer-name').textContent=config.recipient;$('#letter-body').textContent=config.letter;
+    $('#brand-name').textContent=config.callName;$('#footer-name').textContent=config.recipient;$('#letter-body').textContent=config.letter;
+    $('#sound-button').title=config.audio?.name?`背景音乐：${config.audio.name}`:'听一点浪漫';
     $$('img[data-photo]').forEach(el=>{const p=config.photos[Number(el.dataset.photo)];el.src=p.preview||p.src;el.alt=p.caption});
-    const count=dayCount(config.togetherSince);$('#days-number').textContent=count!==null&&count>0?count.toLocaleString():'∞';$('#days-description').textContent=count!==null&&count>0?'天 · 从那天起，每一天都多了一个你':'想和你一起收藏的，往后每一天';
+    updateTogetherTime();
     renderAlbum();$('#envelope').setAttribute('aria-label',`拆开写给${config.callName}的信`);
   }
   function renderAlbum(){
@@ -168,13 +260,17 @@ body:has(dialog[open]){overflow:hidden}
       button.onclick=()=>showMemory(index);gallery.append(button);
     });
     $('#album-range').textContent=`${String(start+1).padStart(2,'0')} — ${String(Math.min(start+3,list.length)).padStart(2,'0')} / ${list.length}`;
-    $('#album-prev').disabled=albumPage===0;$('#album-next').disabled=start+3>=list.length;
-    $('#gallery-note').textContent=`${list.length} 段回忆，按时光的顺序收藏 · 点开照片或视频，读读写给你的话`;
+    $('#album-prev').disabled=false;$('#album-next').disabled=false;
+    const first=albumPage===0,last=start+3>=list.length;
+    $('#album-prev').setAttribute('aria-label',first?'返回初遇':'上一组回忆');
+    $('#album-next').setAttribute('aria-label',last?'继续到心愿':'下一组回忆');
+    $('#album-prev').title=first?'返回初遇':'上一组回忆';$('#album-next').title=last?'继续到心愿':'下一组回忆';
+    $('#gallery-note').textContent=last?'最后一组回忆 · 继续向左滑动或点击右箭头，翻到「心愿」':`${list.length} 段回忆，按时光的顺序收藏 · 点开照片或视频，读读写给你的话`;
   }
   function turnAlbum(step){const next=albumPage+step;if(next<0||next>=Math.ceil(config.memories.length/3))return;albumPage=next;renderAlbum();$('#page-announcement').textContent='相册 '+$('#album-range').textContent;if(innerWidth<=760)$('#memories-title').scrollIntoView({block:'start',behavior:'smooth'})}
-  $('#album-prev').onclick=()=>turnAlbum(-1);$('#album-next').onclick=()=>turnAlbum(1);
+  $('#album-prev').onclick=()=>stepPage(-1);$('#album-next').onclick=()=>stepPage(1);
   function clearVideo(){video.pause();video.removeAttribute('src');video.load();$('#reader-play').hidden=true}
-  function resumeBackground(){if(resumeMusicAfterVideo){resumeMusicAfterVideo=false;void startMusic()}}
+  function resumeBackground(){if(resumeMusicAfterVideo){resumeMusicAfterVideo=false;void startMusic({automatic:true})}}
   function showMemory(index){
     if(index<0||index>=config.memories.length)return;
     clearVideo();memoryIndex=index;const memory=config.memories[index];
@@ -191,7 +287,7 @@ body:has(dialog[open]){overflow:hidden}
   }
   $('#memory-prev').onclick=()=>showMemory(memoryIndex-1);$('#memory-next').onclick=()=>showMemory(memoryIndex+1);
   $('#reader-play').onclick=()=>video.play().catch(()=>{toast('请点击视频下方的播放按钮再试一次。')});
-  video.addEventListener('play',()=>{if(musicPlaying||musicStarting){resumeMusicAfterVideo=true;stopMusic()}$('#reader-play').hidden=true});
+  video.addEventListener('play',()=>{if(musicPlaying||musicStarting||autoplayPending){resumeMusicAfterVideo=true;autoplayPending=false;stopMusic()}$('#reader-play').hidden=true});
   video.addEventListener('ended',()=>{$('#reader-play').hidden=false;resumeBackground()});
   video.addEventListener('error',()=>{if(!video.getAttribute('src'))return;$('#reader-status').textContent='这段视频暂时无法播放，可用 Chrome、Edge 或 Safari 重试。';$('#reader-status').hidden=false;$('#reader-play').hidden=true;resumeBackground()});
   reader.addEventListener('close',()=>{clearVideo();resumeBackground();albumPage=Math.floor(memoryIndex/3);renderAlbum()});
@@ -205,96 +301,68 @@ body:has(dialog[open]){overflow:hidden}
     $('#prev').disabled=page===0;$('#next').disabled=page===5;$('#page-counter').textContent=String(page+1).padStart(2,'0')+' / 06';$('#page-announcement').textContent=`第 ${page+1} 页，共 6 页：${pageNames[page]}`;
     if(document.activeElement?.closest('.chapter[hidden]'))document.activeElement.blur();window.scrollTo({top:0,behavior:'instant'});if(page===5)celebrate(28);
   }
-  $$('[data-go]').forEach(el=>el.onclick=()=>go(Number(el.dataset.go)));$('#prev').onclick=()=>go(page-1);$('#next').onclick=()=>go(page+1);
+  // Sequential navigation visits every album group before changing chapters.
+  // Chapter tabs remain direct links so readers can deliberately skip chapters.
+  function stepPage(step){
+    if(document.querySelector('dialog[open]'))return;
+    const lastAlbumPage=Math.max(0,Math.ceil(config.memories.length/3)-1);
+    if(page===2&&albumPage+step>=0&&albumPage+step<=lastAlbumPage){turnAlbum(step);return}
+    const next=page+step;
+    if(next===2){albumPage=step>0?0:lastAlbumPage;renderAlbum()}
+    go(next);
+  }
+  $$('[data-go]').forEach(el=>el.onclick=()=>go(Number(el.dataset.go)));$('#prev').onclick=()=>stepPage(-1);$('#next').onclick=()=>stepPage(1);
   document.addEventListener('keydown',event=>{
     if(/INPUT|TEXTAREA|SELECT|VIDEO/.test(event.target.tagName))return;
     if(reader.open){if(event.key==='ArrowRight'){event.preventDefault();showMemory(memoryIndex+1)}if(event.key==='ArrowLeft'){event.preventDefault();showMemory(memoryIndex-1)}return}
     if(document.querySelector('dialog[open]'))return;
-    if(event.key==='ArrowRight'){event.preventDefault();go(page+1)}if(event.key==='ArrowLeft'){event.preventDefault();go(page-1)}
+    if(event.key==='ArrowRight'){event.preventDefault();stepPage(1)}if(event.key==='ArrowLeft'){event.preventDefault();stepPage(-1)}
   });
-  let touchStart;$('#book').addEventListener('touchstart',e=>{if(e.touches.length===1)touchStart={x:e.touches[0].clientX,y:e.touches[0].clientY}},{passive:true});
-  $('#book').addEventListener('touchend',e=>{if(!touchStart)return;const dx=e.changedTouches[0].clientX-touchStart.x,dy=e.changedTouches[0].clientY-touchStart.y;touchStart=null;if(Math.abs(dx)>85&&Math.abs(dx)>Math.abs(dy)*1.8)go(page+(dx<0?1:-1))},{passive:true});
+  let touchStart;$('#book').addEventListener('touchstart',e=>{touchStart=e.touches.length===1?{x:e.touches[0].clientX,y:e.touches[0].clientY}:null},{passive:true});
+  $('#book').addEventListener('touchcancel',()=>{touchStart=null},{passive:true});
+  $('#book').addEventListener('touchend',e=>{if(!touchStart)return;const touch=e.changedTouches[0],start=touchStart;touchStart=null;if(!touch)return;const dx=touch.clientX-start.x,dy=touch.clientY-start.y;if(Math.abs(dx)>85&&Math.abs(dx)>Math.abs(dy)*1.8)stepPage(dx<0?1:-1)},{passive:true});
   function celebrate(amount=55){if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;const colors=['#d4a0a4','#d6bb8a','#b9c0a6','#e3beba','#c58a92'];for(let i=0;i<amount;i++){const petal=document.createElement('span');petal.className='petal';petal.style.setProperty('--x',Math.random()*100+'%');petal.style.setProperty('--color',colors[i%colors.length]);petal.style.setProperty('--duration',3+Math.random()*3+'s');petal.style.setProperty('--delay',Math.random()*.9+'s');petal.style.width=5+Math.random()*7+'px';petal.addEventListener('animationend',()=>petal.remove(),{once:true});$('#petals').append(petal)}}
   $('#cake-button').onclick=()=>{if($('#cake-button').classList.contains('blown'))return;$('#cake-button').classList.add('blown');$('#cake-button').setAttribute('aria-label','蜡烛已吹灭，愿望已收藏');$('#wish-instruction').textContent='蜡烛熄灭了，愿望开始发光。';$('#wish-result').textContent=`${config.callName}，愿你所愿，都慢慢实现。`;$('#wish-reset').hidden=false;celebrate()};
-  $('#wish-reset').onclick=()=>{$('#cake-button').classList.remove('blown');$('#cake-button').setAttribute('aria-label','许好愿了，点击吹灭蜡烛');$('#wish-instruction').textContent='许好愿，就轻轻点一下蜡烛吧';$('#wish-result').textContent='';$('#wish-reset').hidden=true};
+  $('#wish-reset').onclick=()=>{$('#cake-button').classList.remove('blown');$('#cake-button').setAttribute('aria-label','许好愿了，点击吹灭蜡烛');$('#wish-instruction').textContent='先许一个愿望，再轻点蛋糕吹灭蜡烛';$('#wish-result').textContent='';$('#wish-reset').hidden=true};
   $('#celebrate').onclick=()=>{celebrate(75);toast('喜欢已经送达，往后还会一直续上。♡')};
   $('#envelope').onclick=()=>{$('#envelope').hidden=true;$('#envelope').style.display='none';$('#envelope').setAttribute('aria-expanded','true');$('#letter-paper').hidden=false;$('#letter-paper').scrollTop=0;$('#letter-close').focus({preventScroll:true})};
   $('#letter-close').onclick=()=>{$('#letter-paper').hidden=true;$('#envelope').hidden=false;$('#envelope').style.display='';$('#envelope').setAttribute('aria-expanded','false');$('#envelope').focus({preventScroll:true})};
-  function soundUI(){const b=$('#sound-button');b.classList.toggle('playing',musicPlaying);b.setAttribute('aria-pressed',String(musicPlaying));b.setAttribute('aria-label',musicPlaying?'暂停背景音乐':'播放背景音乐');$('#sound-label').textContent=musicPlaying?'浪漫播放中':'听一点浪漫'}
-  function stopMusic(){musicVersion++;musicPlaying=false;audio.pause();clearInterval(musicTimer);for(const voice of voices){try{voice.stop()}catch{}}voices.clear();soundUI()}
+  function soundUI(){const b=$('#sound-button');b.classList.toggle('playing',musicPlaying);b.setAttribute('aria-pressed',String(musicPlaying));b.setAttribute('aria-label',musicPlaying?'暂停背景音乐':'播放背景音乐');$('#sound-label').textContent=musicPlaying?'浪漫播放中':autoplayPending?'轻点开启音乐':'听一点浪漫'}
+  function stopMusic(){musicVersion++;musicPlaying=false;musicStarting=false;audio.pause();clearInterval(musicTimer);for(const voice of voices){try{voice.stop()}catch{}}voices.clear();soundUI()}
   function pluck(midi,delay=0,volume=.12){const t=audioContext.currentTime+delay,osc=audioContext.createOscillator(),gain=audioContext.createGain();osc.type='sine';osc.frequency.value=440*2**((midi-69)/12);gain.gain.setValueAtTime(0,t);gain.gain.linearRampToValueAtTime(volume,t+.015);gain.gain.exponentialRampToValueAtTime(.0001,t+2.8);osc.connect(gain);gain.connect(audioContext.destination);voices.add(osc);osc.onended=()=>{voices.delete(osc);osc.disconnect();gain.disconnect()};osc.start(t);osc.stop(t+3)}
   function playPhrase(){const chords=[[48,55,60,64],[45,52,57,60],[41,48,53,57],[43,50,55,59]],melody=[72,76,79,76,74,72,69,72,72,69,65,69,67,71,74,71],chord=chords[Math.floor(beat/4)%4];pluck(melody[beat%16],0,.075);if(beat%2===0){pluck(chord[0],0,.07);pluck(chord[2],.16,.035)}beat++}
-  async function startMusic(){
+  async function startMusic({automatic=false}={}){
     if(musicPlaying||musicStarting)return;musicStarting=true;const version=++musicVersion;
     try{if(config.audio){if(audio.dataset.current!==config.audio.src){audio.src=config.audio.src;audio.dataset.current=config.audio.src}await audio.play()}
       else{const AudioCtx=window.AudioContext||window.webkitAudioContext;if(!AudioCtx)throw new Error('no audio');audioContext??=new AudioCtx();await audioContext.resume();if(version!==musicVersion)return;beat=0;playPhrase();musicTimer=setInterval(playPhrase,720)}
-      if(version!==musicVersion){audio.pause();return}musicPlaying=true;soundUI();
-    }catch{stopMusic();toast('音乐暂时无法播放，请点击音乐按钮重试或换成 MP3。')}finally{musicStarting=false}
+      if(version!==musicVersion)return;musicPlaying=true;autoplayPending=false;soundUI();
+    }catch(error){
+      if(version!==musicVersion)return;
+      stopMusic();autoplayPending=automatic||error?.name==='NotAllowedError';soundUI();
+      if(!autoplayPending)toast('音乐暂时无法播放，请点击音乐按钮重试。');
+    }finally{if(version===musicVersion)musicStarting=false}
   }
-  $('#sound-button').onclick=()=>{resumeMusicAfterVideo=false;if(musicPlaying||musicStarting){stopMusic();return}if(!video.paused)video.pause();void startMusic()};
-  audio.addEventListener('error',()=>{if(musicPlaying){stopMusic();toast('音乐读取失败，可以换一首 MP3 再试。')}});
-  function makeField(labelText,name,value,multiline=false){const label=document.createElement('label');label.className='field';label.textContent=labelText;const input=document.createElement(multiline?'textarea':'input');input.name=name;input.value=value||'';input.maxLength=multiline?3000:60;label.append(input);return label}
-  function makeUpload(labelText,accept,callback){const label=document.createElement('label');label.className='upload';label.append(document.createTextNode(labelText));const input=document.createElement('input');input.type='file';input.accept=accept;input.setAttribute('aria-label',labelText);input.onchange=async()=>{const file=input.files[0];if(!file)return;setMediaBusy(1);try{await callback(file)}catch(error){toast(error.message||'素材读取失败，请重新选择。')}finally{input.value='';setMediaBusy(-1)}};label.append(input);return label}
-  function fillEditor(){
-    editing=structuredClone(config);for(const key of ['recipient','callName','birthday','sender','togetherSince','letter'])form.elements.namedItem(key).value=editing[key]||'';$('#audio-name').textContent=editing.audio?.name||'默认：轻柔的钢琴音色';
-    const covers=$('#photo-editors');covers.replaceChildren();
-    editing.photos.forEach((photo,i)=>{const row=document.createElement('div');row.className='edit-photo-row';const image=new Image();image.src=photo.src;image.alt='封面照片 '+(i+1);const content=document.createElement('div');content.append(makeField('封面照片 '+(i+1)+' · 配文','caption'+i,photo.caption),makeUpload('替换封面照片 '+(i+1),'image/jpeg,image/png,image/webp',async file=>{if(file.size>15*1024*1024)throw new Error('照片超过 15 MB，请换一张小一些的。');const src=await resizeImage(file);editing.photos[i].src=src;delete editing.photos[i].preview;editing.photos[i].custom=true;image.src=src;toast('封面照片已选好，记得保存或导出。')}));row.append(image,content);covers.append(row)});
-    const memories=$('#memory-editors');memories.replaceChildren();
-    editing.memories.forEach((memory,i)=>{
-      const details=document.createElement('details');details.className='memory-edit';const summary=document.createElement('summary');const thumb=new Image();thumb.src=memory.poster||memory.src;thumb.alt='';const title=document.createElement('span');title.textContent=`${memory.id} · ${memory.title} · ${memory.type==='video'?'视频':'照片'}`;summary.append(thumb,title);
-      const content=document.createElement('div');content.className='memory-edit-content';content.append(makeField('这一段的标题','memory-title-'+i,memory.title),makeField('写在照片 / 视频旁边的话','memory-story-'+i,memory.story,true));
-      content.append(makeUpload(`替换回忆 ${memory.id} 的${memory.type==='video'?'视频':'照片'}`,memory.type==='video'?'video/mp4,video/webm,video/quicktime':'image/jpeg,image/png,image/webp',async file=>{
-        if(file.size>(memory.type==='video'?35:15)*1024*1024)throw new Error(memory.type==='video'?'视频超过 35 MB，请选较短的视频。':'照片超过 15 MB，请换一张小一些的。');
-        if(memory.type==='video'){const data=await inspectVideo(file);memory.src=await readFile(file);memory.poster=data.poster;memory.duration=data.duration}
-        else{memory.src=await resizeImage(file);memory.poster=memory.src}
-        delete memory.thumbnail;thumb.src=memory.poster;toast('回忆素材已选好，记得保存或导出。');
-      }));details.append(summary,content);memories.append(details);
-    });$('#save-note').textContent='14 段心意，都可以继续修改';
+  $('#sound-button').onclick=()=>{resumeMusicAfterVideo=false;autoplayPending=false;if(musicPlaying||musicStarting){stopMusic();return}if(!video.paused)video.pause();void startMusic()};
+  // A blocked autoplay attempt can resume inside a real visitor interaction.
+  // Explicit music controls and video playback keep priority over this fallback.
+  function startMusicFromInteraction(event){
+    if(!autoplayPending||musicPlaying||musicStarting||!video.paused||document.hidden)return;
+    if(event.target?.closest('#sound-button,#reader-play,video,input,textarea,select'))return;
+    if(event.type==='keydown'&&(event.repeat||event.ctrlKey||event.metaKey||event.altKey||!['Enter',' ','ArrowLeft','ArrowRight'].includes(event.key)))return;
+    void startMusic({automatic:true});
   }
-  $('#edit-button').onclick=()=>{fillEditor();editor.showModal()};
-  $$('[data-close]').forEach(b=>b.onclick=()=>{if(b.dataset.close==='editor'&&mediaBusy){toast('素材正在处理，请稍等。');return}document.getElementById(b.dataset.close).close()});
-  editor.addEventListener('cancel',e=>{if(mediaBusy)e.preventDefault()});
-  $$('dialog').forEach(dialog=>dialog.addEventListener('click',e=>{if(e.target!==dialog)return;const box=dialog.getBoundingClientRect();if((e.clientX<box.left||e.clientX>box.right||e.clientY<box.top||e.clientY>box.bottom)&&!(dialog===editor&&mediaBusy))dialog.close()}));
-  function setMediaBusy(delta){mediaBusy+=delta;$('#export-button').disabled=mediaBusy>0;form.querySelector('[type="submit"]').disabled=mediaBusy>0;$('#save-note').textContent=mediaBusy?'正在处理素材…':'素材已准备好，请保存或导出'}
-  function readFile(file){return new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=reject;reader.readAsDataURL(file)})}
-  async function resizeImage(file){const url=URL.createObjectURL(file);try{const img=new Image();img.src=url;await img.decode();const scale=Math.min(1,1800/Math.max(img.naturalWidth,img.naturalHeight));const canvas=document.createElement('canvas');canvas.width=Math.round(img.naturalWidth*scale);canvas.height=Math.round(img.naturalHeight*scale);const ctx=canvas.getContext('2d');ctx.fillStyle='#fffaf2';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.drawImage(img,0,0,canvas.width,canvas.height);return canvas.toDataURL('image/jpeg',.88)}finally{URL.revokeObjectURL(url)}}
-  function inspectVideo(file){return new Promise((resolve,reject)=>{
-    const clip=document.createElement('video'),url=URL.createObjectURL(file);let timer,settled=false;
-    function done(error,data){if(settled)return;settled=true;clearTimeout(timer);clip.onerror=null;clip.onloadeddata=null;clip.onseeked=null;clip.removeAttribute('src');clip.load();URL.revokeObjectURL(url);error?reject(error):resolve(data)}
-    timer=setTimeout(()=>done(new Error('视频读取超时，请选择 H.264 编码的 MP4。')),15000);clip.preload='auto';clip.muted=true;clip.playsInline=true;
-    clip.onerror=()=>done(new Error('浏览器无法读取这个视频，请使用 H.264 编码的 MP4。'));
-    clip.onloadeddata=()=>{if(!Number.isFinite(clip.duration)||clip.duration<=0){done(new Error('视频时长无效，请换一个文件。'));return}clip.currentTime=Math.min(1,clip.duration/2)};
-    clip.onseeked=()=>{try{const canvas=document.createElement('canvas'),scale=Math.min(1,900/Math.max(clip.videoWidth,clip.videoHeight));canvas.width=Math.round(clip.videoWidth*scale);canvas.height=Math.round(clip.videoHeight*scale);canvas.getContext('2d').drawImage(clip,0,0,canvas.width,canvas.height);const seconds=Math.floor(clip.duration);done(null,{poster:canvas.toDataURL('image/jpeg',.85),duration:String(Math.floor(seconds/60)).padStart(2,'0')+':'+String(seconds%60).padStart(2,'0')})}catch{done(new Error('无法提取视频封面，请换一个文件。'))}};
-    clip.src=url;
-  })}
-  $('#audio-upload').onchange=async event=>{const file=event.target.files[0];if(!file)return;if(file.size>25*1024*1024){toast('音乐超过 25 MB，建议选择更小的 MP3。');event.target.value='';return}setMediaBusy(1);try{editing.audio={src:await readFile(file),name:file.name};$('#audio-name').textContent=file.name;toast('音乐已选好，记得保存或导出。')}catch{toast('音乐读取失败，请重新选择。')}finally{event.target.value='';setMediaBusy(-1)}};
-  $('#remove-audio').onclick=()=>{if(mediaBusy)return;editing.audio=null;$('#audio-name').textContent='默认：轻柔的钢琴音色'};
-  function readForm(){
-    if(!form.reportValidity())return false;for(const key of ['recipient','callName','birthday','sender','togetherSince','letter'])editing[key]=form.elements.namedItem(key).value.trim();
-    if(!editing.recipient||!editing.callName||!editing.letter||!editing.birthday||!editing.sender){toast('请把名字、生日、落款和信填完整。');return false}
-    const count=dayCount(editing.togetherSince);if(count!==null&&count<1){toast('在一起的日子还没到，可以先留空。');return false}
-    editing.photos.forEach((p,i)=>p.caption=form.elements.namedItem('caption'+i).value.trim()||'和你有关的小小回忆');
-    editing.memories.forEach((m,i)=>{m.title=form.elements.namedItem('memory-title-'+i).value.trim()||'和你有关的小小回忆';m.story=form.elements.namedItem('memory-story-'+i).value.trim()||'这一刻，因为有你，所以值得珍藏。'});return true;
-  }
-  async function save(){if(mediaBusy||!readForm())return false;if(config.audio?.src!==editing.audio?.src)stopMusic();config=structuredClone(editing);render();const saved=await persist();$('#save-note').textContent=saved?'已保存到这个浏览器':'本地保存不可用，请导出网页';return true}
-  form.onsubmit=async event=>{event.preventDefault();if(busy)return;busy=true;try{if(await save()){editor.close();toast('心意已经保存，看看新的回忆册吧。')}}finally{busy=false}};
-  // Online media stays separate until the user explicitly exports an offline copy.
-  async function embedExportAssets(value){
-    const result=structuredClone(value),entries=[],cache=new Map();
-    function collect(object){for(const [key,item] of Object.entries(object)){if(item&&typeof item==='object')collect(item);else if(typeof item==='string'&&/^assets\//.test(item))entries.push([object,key,item])}}
-    collect(result);let cursor=0;
-    async function worker(){while(cursor<entries.length){const [object,key,src]=entries[cursor++];if(!cache.has(src))cache.set(src,(async()=>{const response=await fetch(new URL(src,document.baseURI));if(!response.ok)throw new Error('有一份素材尚未下载完成，请网络恢复后再试');return readFile(await response.blob())})());object[key]=await cache.get(src)}}
-    await Promise.all(Array.from({length:3},worker));return result;
-  }
-  $('#export-button').onclick=async()=>{
-    if(busy)return;busy=true;$('#export-button').disabled=true;try{if(!await save())return;toast('正在打包照片和视频，请保持网页打开…');const exported=await embedExportAssets(config);exported.id='gift-'+Date.now()+'-'+Math.random().toString(36).slice(2,8);delete exported.previousDraftId;
-      const doc=new DOMParser().parseFromString(originalDocument,'text/html');doc.querySelector('#gift-data').textContent=JSON.stringify(exported).replace(/</g,'\\u003c');doc.title=`写给${config.callName} · 生日快乐`;
-      doc.querySelectorAll('img[data-photo]').forEach(el=>{const p=exported.photos[Number(el.dataset.photo)];el.src=p.preview||p.src;el.alt=p.caption});
-      const blob=new Blob(['<!doctype html>\n'+doc.documentElement.outerHTML],{type:'text/html;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`给${config.callName.replace(/[\\/:*?"<>|]/g,'')||'你'}的生日礼物.html`;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);toast('完整网页已导出，照片、视频和音乐都装进去了。');
-    }catch(error){toast('导出未完成：'+(error.message||'请检查网络后重试。'))}finally{busy=false;$('#export-button').disabled=mediaBusy>0}
-  };
-  window.addEventListener('pagehide',()=>{resumeMusicAfterVideo=false;clearVideo();stopMusic()});
-  render();$('#edit-button').disabled=true;loadDraft().then(render).finally(()=>{$('#edit-button').disabled=false});
+  document.addEventListener('click',startMusicFromInteraction);
+  document.addEventListener('touchend',startMusicFromInteraction,{passive:true});
+  document.addEventListener('keydown',startMusicFromInteraction);
+  audio.addEventListener('error',()=>{if(musicPlaying){stopMusic();toast('音乐暂时无法播放，请稍后重试。')}});
+  $$('[data-close]').forEach(button=>button.onclick=()=>document.getElementById(button.dataset.close).close());
+  reader.addEventListener('click',event=>{if(event.target!==reader)return;const box=reader.getBoundingClientRect();if(event.clientX<box.left||event.clientX>box.right||event.clientY<box.top||event.clientY>box.bottom)reader.close()});
+  setInterval(updateTogetherTime,60000);
+  window.addEventListener('pageshow',updateTogetherTime);
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)updateTogetherTime()});
+  window.addEventListener('pagehide',()=>{resumeMusicAfterVideo=false;autoplayPending=false;clearVideo();stopMusic()});
+  render();
+  void startMusic({automatic:true});
 })();
 
 </script>
