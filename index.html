@@ -396,9 +396,16 @@ body:before{content:"";position:fixed;left:-230px;bottom:-190px;width:580px;heig
 .gift-stage.opened .gift-card{animation:rv-in .95s cubic-bezier(.2,.75,.25,1) .95s both}
 .gift-stage.opened .gift-again{animation:rv-in .9s ease 1.5s both}
 .gift-again{margin-top:-8px}
-.gift-next{display:block;margin:4px auto 0}
-.gift-next[hidden]{display:none}
-.gift-next:not([hidden]){animation:rv-in .9s cubic-bezier(.2,.75,.25,1) 1.2s both}
+button{touch-action:manipulation}
+/* After the wish: two clear, finger-sized actions side by side. */
+.wish-actions{position:relative;z-index:1;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px 14px;margin:4px 0 0}
+.wish-actions .wish-reset,.wish-actions .gift-next{display:inline-flex;align-items:center;gap:8px;min-height:44px;margin:0;padding:0 20px;border-radius:30px;font-size:12px;letter-spacing:1.5px;text-decoration:none;white-space:nowrap}
+.wish-actions .wish-reset{border:1px solid #dcc6bc;background:#fffaf3c7;color:#9b7c6f}
+.wish-actions .wish-reset:hover{background:#fff4ea;border-color:#cfaea3}
+.wish-actions .gift-next{background:var(--rose);color:#fff9f2;box-shadow:0 8px 18px #9b516b26}
+.wish-actions .gift-next:hover{background:#984754}
+.wish-actions [hidden]{display:none}
+.wish-actions .gift-next:not([hidden]){animation:rv-in .9s cubic-bezier(.2,.75,.25,1) .7s both}
 .gift-next span{display:inline-block;animation:nudge 1.5s ease-in-out infinite}
 .mic-button.starting{border-style:solid;opacity:.75}
 @keyframes gift-wiggle{0%,80%,100%{rotate:0deg}84%{rotate:-4deg}88%{rotate:3.5deg}92%{rotate:-2.5deg}96%{rotate:1.5deg}}
@@ -432,7 +439,7 @@ body:before{content:"";position:fixed;left:-230px;bottom:-190px;width:580px;heig
 @media(prefers-reduced-motion:reduce){.gift-rays{opacity:1}}
 
 </style>
-<meta name="gift-version" content="20261029-siqi0922-v17">
+<meta name="gift-version" content="20261029-siqi0922-v18">
 <script>try{document.documentElement.classList.add(sessionStorage.getItem("gift-opened")?"gift-seen":"gift-locked")}catch(e){document.documentElement.classList.add("gift-locked")}</script>
 <noscript><style>.gift-gate{display:none!important}</style></noscript>
 </head>
@@ -520,7 +527,7 @@ body:before{content:"";position:fixed;left:-230px;bottom:-190px;width:580px;heig
     </g>
   </g>
 </g>
-<g fill="none" stroke="#b68e78" stroke-width="1.3"><path d="m102 113 5 8m184 10-6 7m-35-58-2 9m-92-7 3 8"/></g></svg></button><p class="wish-instruction" id="wish-instruction">先许一个愿望，再轻点蛋糕吹灭蜡烛</p><p class="wish-result" id="wish-result" role="status"></p><button class="wish-reset" id="wish-reset" hidden>再许一个愿望</button><button class="inline-next gift-next" id="gift-next" data-go="4" hidden>愿望收好了，去拆礼物吧 <span aria-hidden="true">⟶</span></button></div></section>
+<g fill="none" stroke="#b68e78" stroke-width="1.3"><path d="m102 113 5 8m184 10-6 7m-35-58-2 9m-92-7 3 8"/></g></svg></button><p class="wish-instruction" id="wish-instruction">先许一个愿望，再轻点蛋糕吹灭蜡烛</p><p class="wish-result" id="wish-result" role="status"></p><div class="wish-actions"><button class="wish-reset" id="wish-reset" type="button" hidden>↺ 再许一个愿望</button><button class="gift-next" id="gift-next" type="button" data-go="4" hidden>去拆礼物吧 <span aria-hidden="true">⟶</span></button></div></div></section>
     <section class="chapter gift" data-page="4" aria-labelledby="gift-title" hidden><div class="gift-copy"><div class="chapter-heading"><div class="eyebrow">Chapter 04 · A little surprise</div><h2 id="gift-title">愿望许好了，<br>该<em>拆礼物</em>啦。</h2><p>准备它的时候，一直在想你收到时的样子。<br>希望它能替我，多陪在你身边一点。</p></div><ul class="gift-lines"><li><span>✧</span> 追剧的时候，屏幕大一点，心情也亮一点。</li><li><span>✧</span> 想画画、写手账，随时都有地方落笔。</li><li><span>✧</span> 我们视频的时候，能把你看得更清楚。</li></ul></div><div class="gift-stage" id="gift-stage"><div class="gift-rays" aria-hidden="true"></div><div class="gift-closed"><button class="gift-box" id="gift-box" type="button" aria-label="拆开生日礼物" aria-controls="gift-reveal" aria-expanded="false"><span class="gift-shadow" aria-hidden="true"></span><span class="gift-body" aria-hidden="true"><i></i></span><span class="gift-lid" aria-hidden="true"><i></i><svg class="gift-bow" viewBox="0 0 120 72"><path d="M60 50C46 28 18 10 11 27c-6 16 26 26 49 23Z" fill="#c26c79"/><path d="M60 50C74 28 102 10 109 27c6 16-26 26-49 23Z" fill="#b65f6d"/><path d="M27 29c8 6 20 12 33 19M93 29c-8 6-20 12-33 19" fill="none" stroke="#9c4a57" stroke-width="1.6" opacity=".55"/><path d="m55 52-13 20 9-2 5 5 4-21Zm10 0 13 20-9-2-5 5-4-21Z" fill="#a9505e"/><ellipse cx="60" cy="50" rx="10" ry="8.5" fill="#a24b59"/></svg></span><span class="gift-glint one" aria-hidden="true">✦</span><span class="gift-glint two" aria-hidden="true">✧</span><span class="gift-glint three" aria-hidden="true">✦</span></button><p class="gift-hint">轻点礼物盒，拆开看看</p></div><div class="gift-reveal" id="gift-reveal" hidden><div class="ipad" aria-hidden="true"><div class="ipad-screen"><img data-photo="0" src="assets/95c20b39eb873d4186d4.webp" alt="出门少了，喜欢没有少" decoding="async" loading="eager" fetchpriority="high"><span class="ipad-date"><span data-bind="birthday">农历九月廿二</span> · 生日快乐</span><span class="ipad-time" id="ipad-time">09:22</span><span class="ipad-note">For you ♡</span></div><i class="ipad-camera"></i></div><div class="gift-card" role="status"><p class="gift-name">iPad · 11 英寸 · 256GB</p><p class="gift-message">256GB 的空间，装你喜欢的剧、你画下的画，
 还有我们以后的很多很多照片。</p></div><button class="wish-reset gift-again" id="gift-again" type="button">把礼物重新包好</button></div></div></section>
     <section class="chapter letter" data-page="5" aria-labelledby="letter-title" hidden><div class="letter-title"><div class="chapter-heading"><div class="eyebrow">Chapter 05 · From my heart</div><h2 id="letter-title">有一些话，<br>想认真<em>写给你。</em></h2><p>可能平时说得不够好，<br>所以今天，把心意放进这封信里。</p></div><div class="hand-note">To my favorite person.</div></div><div class="letter-stage"><button class="envelope" id="envelope" aria-expanded="false" aria-controls="letter-paper" aria-label="拆开写给张思琪的信"><span class="seal" aria-hidden="true">♡</span><span class="envelope-label">To <span data-bind="callName">张思琪</span> · 点击拆开这封信</span></button><article class="letter-paper" id="letter-paper" hidden><h3>亲爱的<span data-bind="callName">张思琪</span>：</h3><div class="letter-body" id="letter-body"></div><div class="signature"><span data-bind="sender">最喜欢你的人</span><span>WITH ALL MY LOVE</span></div><button class="letter-close" id="letter-close">把信收好</button></article></div></section>
@@ -1015,12 +1022,14 @@ body:before{content:"";position:fixed;left:-230px;bottom:-190px;width:580px;heig
   function blowCandles(){
     const cake=$('#cake-button');if(cake.classList.contains('blown'))return;
     stopMic();playInteractionSound('blow');cake.classList.add('blown');$('.cake-area').classList.remove('lit');micButton.hidden=true;
-    cake.setAttribute('aria-label','蜡烛已吹灭，愿望已收藏');$('#wish-instruction').textContent='蜡烛熄灭了，愿望开始发光。';$('#wish-result').textContent='愿你所愿，都慢慢实现。';$('#wish-reset').hidden=false;if($('#gift-next'))$('#gift-next').hidden=false;
+    cake.setAttribute('aria-label','蜡烛已吹灭，愿望已收藏，再点一下可以重新许愿');$('#wish-instruction').textContent='蜡烛熄灭了，愿望开始发光。';$('#wish-result').textContent='愿你所愿，都慢慢实现。';$('#wish-reset').hidden=false;if($('#gift-next'))$('#gift-next').hidden=false;
     effects?.candles(cake.querySelector('svg'));setTimeout(()=>celebrate(),650);
   }
   $('.cake-area').classList.add('lit');
-  $('#cake-button').onclick=blowCandles;
-  $('#wish-reset').onclick=()=>{$('#cake-button').classList.remove('blown');$('.cake-area').classList.add('lit');micButton.hidden=!micButton.classList.contains('mic-button');$('#cake-button').setAttribute('aria-label','许好愿了，点击吹灭蜡烛');$('#wish-instruction').textContent='先许一个愿望，再轻点蛋糕吹灭蜡烛';$('#wish-result').textContent='';$('#wish-reset').hidden=true;if($('#gift-next'))$('#gift-next').hidden=true};
+  // Tapping the cake again after the candles are out relights them, as a second way to make another wish.
+  $('#cake-button').onclick=()=>{if($('#cake-button').classList.contains('blown'))resetWish();else blowCandles()};
+  function resetWish(){$('#cake-button').classList.remove('blown');$('.cake-area').classList.add('lit');micButton.hidden=!micButton.classList.contains('mic-button');$('#cake-button').setAttribute('aria-label','许好愿了，点击吹灭蜡烛');$('#wish-instruction').textContent='先许一个愿望，再轻点蛋糕吹灭蜡烛';$('#wish-result').textContent='';$('#wish-reset').hidden=true;if($('#gift-next'))$('#gift-next').hidden=true}
+  $('#wish-reset').onclick=resetWish;
   $('#celebrate').onclick=()=>{playInteractionSound('love');const box=$('#celebrate').getBoundingClientRect();effects?.burst(box.left+box.width/2,box.top+box.height/2,{count:80});effects?.hearts(box.left+box.width/2,box.top,10);celebrate(75);toast('喜欢已经送达，往后还会一直续上。♡')};
   // The birthday present: the box shakes, the lid flies off, and the gift rises out with its screen lighting up.
   const giftStage=$('#gift-stage');
