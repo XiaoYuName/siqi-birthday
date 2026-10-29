@@ -450,9 +450,11 @@ button{touch-action:manipulation}
 .cake-button.nudge{animation:gift-shake .55s ease-in-out}
 .gift-box.nudge{animation:gift-shake .55s ease-in-out}
 @keyframes tag-swing{50%{rotate:3deg}}
+.envelope .envelope-tag{left:auto;right:18px;top:-14px;z-index:4}
+.envelope.nudge{animation:gift-shake .55s ease-in-out}
 
 </style>
-<meta name="gift-version" content="20261029-siqi0922-v20">
+<meta name="gift-version" content="20261029-siqi0922-v21">
 <script>try{document.documentElement.classList.add(sessionStorage.getItem("gift-opened")?"gift-seen":"gift-locked")}catch(e){document.documentElement.classList.add("gift-locked")}</script>
 <noscript><style>.gift-gate{display:none!important}</style></noscript>
 </head>
@@ -1072,6 +1074,8 @@ button{touch-action:manipulation}
   // The letter opens like a real envelope, then its paragraphs appear as they are read.
   $('#envelope').prepend(Object.assign(document.createElement('span'),{className:'envelope-letter'}));
   $('.envelope-letter').setAttribute('aria-hidden','true');
+  $('#envelope').append(Object.assign(document.createElement('span'),{className:'gift-tag envelope-tag',id:'envelope-tag'}));
+  $('#envelope-tag').setAttribute('aria-hidden','true');
   $('.signature').insertAdjacentHTML('beforeend','<svg class="sign-heart" viewBox="0 0 40 36" aria-hidden="true"><path pathLength="1" d="M20 32C9 24.5 3.5 18 3.5 11.8 3.5 7 7.2 3.5 11.6 3.5c3.6 0 6.5 2.1 8.4 5.6 1.9-3.5 4.8-5.6 8.4-5.6 4.4 0 8.1 3.5 8.1 8.3C36.5 18 31 24.5 20 32Z"/></svg>');
   let letterObserver,envelopeTimer;
   function revealLetter(){
@@ -1084,7 +1088,9 @@ button{touch-action:manipulation}
     items.forEach(item=>letterObserver.observe(item));
   }
   $('#envelope').onclick=()=>{
-    const envelope=$('#envelope');if(envelope.hidden||envelope.classList.contains('opening'))return;playInteractionSound('letter');
+    const envelope=$('#envelope');if(envelope.hidden||envelope.classList.contains('opening'))return;
+    if(birthdayLocked){nudge(envelope);toast(birthdayWaitMessage('letter'));return}
+    playInteractionSound('letter');
     const open=()=>{envelope.classList.remove('opening');envelope.hidden=true;envelope.style.display='none';envelope.setAttribute('aria-expanded','true');$('#letter-paper').hidden=false;$('#letter-paper').scrollTop=0;revealLetter();$('#letter-close').focus({preventScroll:true})};
     if(reducedMotion()){open();return}
     envelope.classList.add('opening');clearTimeout(envelopeTimer);envelopeTimer=setTimeout(open,1250);
@@ -1138,6 +1144,7 @@ button{touch-action:manipulation}
   function birthdayWaitMessage(kind){
     const tomorrow=birthdayDays===1;
     if(kind==='cake')return tomorrow?'还没到生日哦，明天再来吹蜡烛～':`还没到生日哦，蜡烛要留到${birthdayWhen()}再吹～`;
+    if(kind==='letter')return tomorrow?'这封信要等到明天生日才能拆开哦～':`这封信要等到${birthdayWhen()}生日那天才能拆开哦，还有 ${birthdayDays} 天～`;
     return tomorrow?'礼物要等到明天生日才能拆开哦～':`礼物要等到${birthdayWhen()}生日那天才能拆开哦，还有 ${birthdayDays} 天～`;
   }
   function nudge(element){element.classList.remove('nudge');void element.offsetWidth;element.classList.add('nudge');setTimeout(()=>element.classList.remove('nudge'),650)}
@@ -1150,6 +1157,10 @@ button{touch-action:manipulation}
     }
     if(micButton.classList.contains('mic-button'))micButton.hidden=locked||blown;
     if(locked)stopMic();
+    const letterLabel=$('.envelope-label');
+    letterLabel.replaceChildren(`To ${config.callName} · `+(locked?(tomorrow?'明天生日再拆开':`${birthdayWhen()}生日再拆开`):'点击拆开这封信'));
+    $('#envelope-tag').textContent=locked?`${birthdayDay().getMonth()+1}.${birthdayDay().getDate()}`:'';
+    $('#envelope').setAttribute('aria-label',locked?`写给${config.callName}的信，生日那天才能拆开`:`拆开写给${config.callName}的信`);
     if(giftStage){
       $('#gift-tag').textContent=locked?`${birthdayDay().getMonth()+1}.${birthdayDay().getDate()}`:'';
       if(!giftStage.classList.contains('opened'))$('.gift-hint').textContent=locked?(tomorrow?'明天生日才能拆开哦':`生日那天才能拆开 · 还有 ${birthdayDays} 天`):'轻点礼物盒，拆开看看';
